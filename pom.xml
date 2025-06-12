@@ -213,6 +213,13 @@
                 <version>${zhglxt.version}</version>
             </dependency>
 
+            <!-- CMS系统模块 -->
+            <dependency>
+                <groupId>com.zhglxt</groupId>
+                <artifactId>zhglxt-cms</artifactId>
+                <version>${zhglxt.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -223,6 +230,8 @@
         <module>zhglxt-quartz</module>
         <module>zhglxt-generator</module>
         <module>zhglxt-common</module>
+
+        <module>zhglxt-cms</module>
     </modules>
     <packaging>pom</packaging>
 

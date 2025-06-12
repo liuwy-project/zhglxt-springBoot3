@@ -1,6 +1,8 @@
 package com.zhglxt.system.service.impl;
 
 import java.util.List;
+
+import com.zhglxt.common.utils.uuid.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.zhglxt.common.core.domain.entity.SysDictData;
@@ -52,7 +54,7 @@ public class SysDictDataServiceImpl implements ISysDictDataService
      * @return 字典数据
      */
     @Override
-    public SysDictData selectDictDataById(Long dictCode)
+    public SysDictData selectDictDataById(String dictCode)
     {
         return dictDataMapper.selectDictDataById(dictCode);
     }
@@ -65,8 +67,8 @@ public class SysDictDataServiceImpl implements ISysDictDataService
     @Override
     public void deleteDictDataByIds(String ids)
     {
-        Long[] dictCodes = Convert.toLongArray(ids);
-        for (Long dictCode : dictCodes)
+        String[] dictCodes = Convert.toStrArray(ids);
+        for (String dictCode : dictCodes)
         {
             SysDictData data = selectDictDataById(dictCode);
             dictDataMapper.deleteDictDataById(dictCode);
@@ -84,6 +86,7 @@ public class SysDictDataServiceImpl implements ISysDictDataService
     @Override
     public int insertDictData(SysDictData data)
     {
+        data.setDictCode(UUID.fastUUID().toString(true));
         int row = dictDataMapper.insertDictData(data);
         if (row > 0)
         {

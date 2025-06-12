@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="include :: header('新增站点')"/>
+    <th:block th:include="include :: summernote-css"/>
+    <th:block th:include="include :: bootstrap-fileinput-css" />
+    
+    <style>
+        .hide-small-remove-btn .kv-file-remove {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-site-add">
+        <div class="form-group">
+            <label class="col-sm-3 control-label is-required">名称：</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" name="name" id="name" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">标题：</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" name="title" id="title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">描述：</label>
+            <div class="col-sm-8">
+                <textarea type="text" name="description" class="form-control" th:rows="5"
+                          placeholder="请输描述内容"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">关键字：</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" name="keywords" id="keywords">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">站点域名：</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" name="siteDomain" id="siteDomain">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">背景音乐：</label>
+            <input class="form-control" type="text" name="bgMusic" id="bgMusic" style="display: none;" readonly>
+            <div class="col-sm-3">
+                <div class="file-loading">
+                    <input id="bgMusicFile" name="file" type="file">
+                </div>
+                <div id="errorBlock" style="color: red;"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">版权信息：</label>
+            <div class="col-sm-9">
+                <input id="copyright" name="copyright" type="hidden">
+                <div class="summernote"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label is-required">排序：</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" name="sort" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">是否显示：</label>
+            <div class="col-sm-9">
+                <div class="radio-box" th:each="dict : ${@dict.getType('cms_show_hide')}">
+                    <input type="radio" th:id="${dict.dictCode}" name="status" th:value="${dict.dictValue}"
+                           th:checked="${dict.default}">
+                    <label th:for="${dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">备注：</label>
+            <div class="col-sm-8">
+                <textarea type="text" name="remark" class="form-control" th:rows="5" placeholder="请输入备注"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<th:block th:include="include :: footer"/>
+<th:block th:include="include :: summernote-js"/>
+<th:block th:include="include :: bootstrap-fileinput-js" />
+<script type="text/javascript" th:inline="javascript">
+    var prefix = ctx + "cms/site";
+    $(function () {
+        
+        // 初始化上传组件
+        var fileInputConfig = {
+            uploadUrl: prefix + '/uploadCMS',
+            maxFileCount: 1,
+            autoReplace: true,
+            showUpload: true,
+            showRemove: true,
+            showCaption: true,
+            showPreview: true,
+            showClose: false,
+            browseClass: "btn btn-primary",
+            browseLabel: "选择文件",
+            browseIcon: '<i class="fa fa-file-music-o"></i> ',
+            removeClass: "btn btn-danger",
+            removeLabel: "移除",
+            removeIcon: '<i class="fa fa-trash"></i> ',
+            uploadClass: "btn btn-success",
+            uploadLabel: "上传",
+            uploadIcon: '<i class="fa fa-upload"></i> ',
+            allowedFileExtensions: ["swf", "flv", "mp3", "wav", "wma", "wmv", "mid", "avi", "mpg","asf", "rm", "rmvb"],
+            previewFileIcon: '<i class="fa fa-file-audio-o"></i>',
+            maxFileSize: 20000, // 20MB
+            msgSizeTooLarge: '文件 "{name}" ({size} KB) 超过了允许的最大大小 {maxSize} KB。',
+            msgFilesTooLess: '您必须至少选择 {n} 个文件来上传。',
+            msgInvalidFileExtension: '不支持的文件类型 "{name}"。只允许 "{extensions}" 类型的文件。',
+            elErrorContainer: '#errorBlock',
+            previewClass: 'hide-small-remove-btn',
+        };
+
+        // 初始化文件上传组件并缓存实例
+        var $fileInput = $("#bgMusicFile").fileinput(fileInputConfig);
+
+        // 绑定文件清空事件（处理初始预览和新上传文件的移除）
+        $fileInput.on('fileclear', function() {
+            $("#bgMusic").val('');
+        });
+
+        // 绑定文件上传成功事件
+        $fileInput.on('fileuploaded', function(event, data) {
+            var rsp = data.response;
+            $("#bgMusic").val(rsp.url);
+            $.modal.alertSuccess("文件上传成功!");
+        });
+
+        // 绑定文件上传失败事件
+        $fileInput.on('fileuploaderror', function(event, data) {
+            var response = data.response;
+            console.log('上传错误信息:', response);
+            $.modal.alertError("文件上传失败: " + (response ? response.message : '未知错误'));
+        });
+
+        // 绑定文件验证错误事件
+        $fileInput.on('fileerror', function(event, data, msg) {
+            $.modal.alertWarning(msg);
+        });
+
+    })
+
+    $('.summernote').summernote({
+        placeholder: '请输入版权信息',
+        height: 320,
+        lang: 'zh-CN',
+        followingToolbar: false,
+        dialogsInBody: true,
+        callbacks: {
+            onImageUpload: function (files) {
+                sendFile(files[0], this);
+            }
+        }
+    });
+
+    // 上传文件
+    function sendFile(file, obj) {
+        var data = new FormData();
+        data.append("file", file);
+        $.ajax({
+            type: "POST",
+            url: ctx + "common/upload",
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            success: function (result) {
+                if (result.code == web_status.SUCCESS) {
+                    $(obj).summernote('editor.insertImage', result.url, result.fileName);
+                } else {
+                    $.modal.alertError(result.msg);
+                }
+            },
+            error: function (error) {
+                $.modal.alertWarning("图片上传失败。");
+            }
+        });
+    }
+
+    function submitHandler() {
+        if ($.validate.form()) {
+            var sHTML = $('.summernote').summernote('code');
+            $("#copyright").val(sHTML);
+            $.operate.save(prefix + "/addSite", $('#form-site-add').serializeArray());
+        }
+    }
+
+</script>
+</body>
+</html>

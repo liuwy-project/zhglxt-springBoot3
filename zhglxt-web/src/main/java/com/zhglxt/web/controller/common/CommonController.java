@@ -2,11 +2,14 @@ package com.zhglxt.web.controller.common;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.zhglxt.common.utils.file.MimeTypeUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -81,7 +84,7 @@ public class CommonController
             // 上传文件路径
             String filePath = GlobalConfig.getUploadPath();
             // 上传并返回新文件名称
-            String fileName = FileUploadUtils.upload(filePath, file);
+            String fileName = FileUploadUtils.upload(filePath, file,MimeTypeUtils.DEFAULT_ALLOWED_EXTENSION);
             String url = serverConfig.getUrl() + fileName;
             AjaxResult ajax = AjaxResult.success();
             ajax.put("url", url);
@@ -114,7 +117,7 @@ public class CommonController
             for (MultipartFile file : files)
             {
                 // 上传并返回新文件名称
-                String fileName = FileUploadUtils.upload(filePath, file);
+                String fileName = FileUploadUtils.upload(filePath, file,MimeTypeUtils.DEFAULT_ALLOWED_EXTENSION);
                 String url = serverConfig.getUrl() + fileName;
                 urls.add(url);
                 fileNames.add(fileName);

@@ -72,14 +72,14 @@ public class FileUploadUtils
      *
      * @param baseDir 相对应用的基目录
      * @param file 上传的文件
+     * @param mimeType 上传文件的限制类型
      * @return 文件名称
-     * @throws IOException
      */
-    public static final String upload(String baseDir, MultipartFile file) throws IOException
+    public static final String upload(String baseDir, MultipartFile file,String[] mimeType) throws IOException
     {
         try
         {
-            return upload(baseDir, file, MimeTypeUtils.DEFAULT_ALLOWED_EXTENSION);
+            return upload(baseDir, file, mimeType, false);
         }
         catch (Exception e)
         {
@@ -87,25 +87,6 @@ public class FileUploadUtils
         }
     }
 
-    /**
-     * 文件上传
-     *
-     * @param baseDir 相对应用的基目录
-     * @param file 上传的文件
-     * @param allowedExtension 上传文件类型
-     * @return 返回上传成功的文件名
-     * @throws FileSizeLimitExceededException 如果超出最大大小
-     * @throws FileNameLengthLimitExceededException 文件名太长
-     * @throws IOException 比如读写文件出错时
-     * @throws InvalidExtensionException 文件校验异常
-     */
-    public static final String upload(String baseDir, MultipartFile file, String[] allowedExtension)
-            throws FileSizeLimitExceededException, IOException, FileNameLengthLimitExceededException,
-            InvalidExtensionException
-    {
-        return upload(baseDir, file, allowedExtension, false);
-    }
-    
     /**
      * 文件上传
      *
@@ -172,7 +153,7 @@ public class FileUploadUtils
     {
         int dirLastIndex = GlobalConfig.getProfile().length() + 1;
         String currentDir = StringUtils.substring(uploadDir, dirLastIndex);
-        return Constants.RESOURCE_PREFIX + "/" + currentDir + "/" + fileName;
+        return currentDir + "/" + fileName;
     }
 
     /**

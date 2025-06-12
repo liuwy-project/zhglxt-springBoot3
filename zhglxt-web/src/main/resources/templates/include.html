@@ -226,3 +226,30 @@
 <div th:fragment="bootstrap-table-cookie-js">
 	<script th:src="@{/ajax/libs/bootstrap-table/extensions/cookie/bootstrap-table-cookie.js}"></script>
 </div>
+
+
+<!--editor.md 编辑-->
+<div th:fragment="editorMd-css">
+	<link th:href="@{/editormd/examples/css/style.css}" rel="stylesheet"/>
+	<link th:href="@{/editormd/css/editormd.min.css}" rel="stylesheet"/>
+</div>
+<div th:fragment="editorMd-js">
+	<script th:src="@{/editormd/editormd.js}"></script>
+	<script th:src="@{/editormd/examples/js/image-handle-paste.js}"></script>
+</div>
+<!--editor.md 查看-->
+<div th:fragment="editorMd-preview-css">
+	<link th:href="@{/editormd/examples/css/style.css}" rel="stylesheet"/>
+	<link th:href="@{/editormd/css/editormd.min.css}" rel="stylesheet"/>
+	<link th:href="@{/editormd/css/editormd.preview.css}" rel="stylesheet"/>
+</div>
+<div th:fragment="editorMd-preview-js">
+	<script th:src="@{/editormd/editormd.js}"></script>
+	<script th:src="@{/editormd/lib/marked.min.js}"></script>
+	<script th:src="@{/editormd/lib/prettify.min.js}"></script>
+	<script th:src="@{/editormd/lib/raphael.min.js}"></script>
+	<script th:src="@{/editormd/lib/underscore.min.js}"></script>
+	<script th:src="@{/editormd/lib/sequence-diagram.min.js}"></script>
+	<script th:src="@{/editormd/lib/flowchart.min.js}"></script>
+	<script th:src="@{/editormd/lib/jquery.flowchart.min.js}"></script>
+</div>

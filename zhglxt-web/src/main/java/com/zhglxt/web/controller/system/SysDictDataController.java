@@ -91,7 +91,7 @@ public class SysDictDataController extends BaseController
      */
     @RequiresPermissions("system:dict:edit")
     @GetMapping("/edit/{dictCode}")
-    public String edit(@PathVariable("dictCode") Long dictCode, ModelMap mmap)
+    public String edit(@PathVariable("dictCode") String dictCode, ModelMap mmap)
     {
         mmap.put("dict", dictDataService.selectDictDataById(dictCode));
         return prefix + "/edit";

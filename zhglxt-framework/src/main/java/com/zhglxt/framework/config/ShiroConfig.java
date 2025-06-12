@@ -331,6 +331,19 @@ public class ShiroConfig
         filters.put("logout", logoutFilter());
         shiroFilterFactoryBean.setFilters(filters);
 
+        //CMS系统
+        filterChainDefinitionMap.put("/profile/cms/upload/**", "anon");
+        filterChainDefinitionMap.put("/cms/**", "anon");
+        //cms官网首页图片放行
+        filterChainDefinitionMap.put("/userfiles/**/images/**", "anon");
+        //cms官网首页音频放行
+        filterChainDefinitionMap.put("/userfiles/**/music/**", "anon");
+
+        // editormd静态资源放行
+        filterChainDefinitionMap.put("/editormd/**", "anon");
+        // editormd上传的图片放行
+        filterChainDefinitionMap.put("/profile/markdown/upload/**", "anon");
+
         // 所有请求需要认证
         filterChainDefinitionMap.put("/**", "user,kickout,onlineSession,syncOnlineSession,csrfValidateFilter");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);

@@ -30,6 +30,18 @@ public class GlobalConfig
     /** 获取地址开关 */
     private static boolean addressEnabled;
 
+    /**
+     * 上传文件基础虚拟路径 userfiles
+     */
+    public static final String USERFILES_BASE_URL = "/userfiles/";
+
+    /**
+     * 上传文件基础虚拟路径 cms
+     */
+    public static final String USERFILES_BASE_URL_CMS_SITE = "/cms/site/";
+    public static final String USERFILES_BASE_URL_CMS_ADVERTISING = "/cms/advertising/";
+    public static final String USERFILES_BASE_URL_CMS_ARTICLE = "/cms/article/";
+
     public static String getName()
     {
         return name;
@@ -70,13 +82,11 @@ public class GlobalConfig
         GlobalConfig.demoEnabled = demoEnabled;
     }
 
-    public static String getProfile()
-    {
+    public static String getProfile() {
         return profile;
     }
 
-    public void setProfile(String profile)
-    {
+    public void setProfile(String profile) {
         GlobalConfig.profile = profile;
     }
 
@@ -114,11 +124,22 @@ public class GlobalConfig
         return getProfile() + "/download/";
     }
 
+
     /**
      * 获取上传路径
      */
     public static String getUploadPath()
     {
-        return getProfile() + "/upload";
+        return getProfile()+ "/upload";
     }
+
+    /**
+     * 获取上传路径
+     * @param  append 附加的文件夹名称
+     */
+    public static String getUploadPath(String append)
+    {
+        return getProfile() +"/" +append;
+    }
+
 }

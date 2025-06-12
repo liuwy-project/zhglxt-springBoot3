@@ -11,3 +11,7 @@ springdoc:
       display-name: '测试模块'
       paths-to-match: '/**'
       packages-to-scan: com.zhglxt.web.controller.tool
+    - group: 'cms'
+      display-name: '企业官网'
+      paths-to-match: '/cms/**'
+      packages-to-scan: com.zhglxt.web.controller

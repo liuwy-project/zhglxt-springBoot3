@@ -8,15 +8,15 @@ zhglxt:
   copyrightYear: 2025
   # 实例演示开关
   demoEnabled: true
-  # 文件路径 示例（ Windows配置D:/zhglxt/uploadPath，Linux配置 /home/zhglxt/uploadPath）
-  profile: D:/zhglxt/uploadPath
+  # 文件路径 示例（ Windows配置 D:/zhglxt_userfiles，Linux配置 /home/zhglxt_userfiles）
+  profile: D:/zhglxt_userfiles
   # 获取ip地址开关
   addressEnabled: false
 
 # 开发环境配置
 server:
-  # 服务器的HTTP端口，默认为8888
-  port: 8888
+  # 服务器的HTTP端口，默认为8889
+  port: 8889
   servlet:
     # 应用的访问路径
     context-path: /zhglxt

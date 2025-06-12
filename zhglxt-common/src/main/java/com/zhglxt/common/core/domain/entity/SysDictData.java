@@ -18,8 +18,8 @@ public class SysDictData extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 字典编码 */
-    @Excel(name = "字典编码", cellType = ColumnType.NUMERIC)
-    private Long dictCode;
+    @Excel(name = "字典编码")
+    private String dictCode;
 
     /** 字典排序 */
     @Excel(name = "字典排序", cellType = ColumnType.NUMERIC)
@@ -52,12 +52,12 @@ public class SysDictData extends BaseEntity
     @Excel(name = "状态", readConverterExp = "0=正常,1=停用")
     private String status;
 
-    public Long getDictCode()
+    public String getDictCode()
     {
         return dictCode;
     }
 
-    public void setDictCode(Long dictCode)
+    public void setDictCode(String dictCode)
     {
         this.dictCode = dictCode;
     }

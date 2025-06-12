@@ -5,6 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.zhglxt.system.mapper.SysDictDataMapper">
 	
 	<resultMap type="SysDictData" id="SysDictDataResult">
+		<result property="dictCode"   column="dict_code"   />
 		<result property="dictSort"   column="dict_sort"   />
 		<result property="dictLabel"  column="dict_label"  />
 		<result property="dictValue"  column="dict_value"  />
@@ -49,7 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where dict_type = #{dictType} and dict_value = #{dictValue}
 	</select>
 	
-	<select id="selectDictDataById" parameterType="Long" resultMap="SysDictDataResult">
+	<select id="selectDictDataById" parameterType="String" resultMap="SysDictDataResult">
 		<include refid="selectDictDataVo"/>
 		where dict_code = #{dictCode}
 	</select>
@@ -58,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    select count(1) from sys_dict_data where dict_type=#{dictType}  
 	</select>
 	
-	<delete id="deleteDictDataById" parameterType="Long">
+	<delete id="deleteDictDataById" parameterType="String">
  		delete from sys_dict_data where dict_code = #{dictCode}
  	</delete>
 	
@@ -93,6 +94,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	
  	<insert id="insertDictData" parameterType="SysDictData">
  		insert into sys_dict_data(
+			<if test="dictCode != null and dictCode != ''">dict_code,</if>
  			<if test="dictSort != null">dict_sort,</if>
  			<if test="dictLabel != null and dictLabel != ''">dict_label,</if>
  			<if test="dictValue != null and dictValue != ''">dict_value,</if>
@@ -105,6 +107,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="createBy != null and createBy != ''">create_by,</if>
  			create_time
  		)values(
+			<if test="dictCode != null and dictCode != ''">#{dictCode},</if>
  		    <if test="dictSort != null">#{dictSort},</if>
  		    <if test="dictLabel != null and dictLabel != ''">#{dictLabel},</if>
  			<if test="dictValue != null and dictValue != ''">#{dictValue},</if>

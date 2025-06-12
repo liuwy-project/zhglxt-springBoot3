@@ -65,6 +65,12 @@
             <artifactId>zhglxt-generator</artifactId>
         </dependency>
 
+        <!-- CMS系统模块 -->
+        <dependency>
+            <groupId>com.zhglxt</groupId>
+            <artifactId>zhglxt-cms</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

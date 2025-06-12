@@ -45,6 +45,15 @@ public class ResourcesConfig implements WebMvcConfigurer
 
         /** swagger配置 */
         registry.addResourceHandler("/swagger-ui/**").addResourceLocations("classpath:/META-INF/resources/webjars/springfox-swagger-ui/");
+
+        /** 文件访问路径配置 (D:/zhglxt_userfiles/userfiles/) */
+        registry.addResourceHandler("/userfiles/**").addResourceLocations("file:" + GlobalConfig.getProfile() + GlobalConfig.USERFILES_BASE_URL);
+
+
+        /** CMS文件访问路径配置 (D:/zhglxt_userfiles/cms/XXX/...)*/
+        registry.addResourceHandler("/cms/site/**").addResourceLocations("file:" + GlobalConfig.getProfile() + GlobalConfig.USERFILES_BASE_URL_CMS_SITE);
+        registry.addResourceHandler("/cms/advertising/**").addResourceLocations("file:" + GlobalConfig.getProfile() + GlobalConfig.USERFILES_BASE_URL_CMS_ADVERTISING);
+        registry.addResourceHandler("/cms/article/**").addResourceLocations("file:" + GlobalConfig.getProfile() + GlobalConfig.USERFILES_BASE_URL_CMS_ARTICLE);
     }
 
     /**
