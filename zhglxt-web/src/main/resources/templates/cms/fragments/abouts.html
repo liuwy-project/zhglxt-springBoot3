@@ -1,0 +1,14 @@
+<div th:fragment="abouts">
+    <div class="container" th:if="${not #lists.isEmpty(abouts)}">
+        <hr>
+        <div class="row">
+            <div class="container col-sm-12" th:each="about,abouttStat : ${abouts}">
+                <img th:if="${abouttStat.index==0}" th:src="${about.imageUrl}"
+                     class="img-responsive center-block" alt="关于我们">
+                <p th:if="${abouttStat.index==0 && not #strings.isEmpty(about.content)}"
+                   th:utext="${about.content}"></p>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+    </div>
+</div>

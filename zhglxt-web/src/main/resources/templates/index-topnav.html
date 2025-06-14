@@ -90,7 +90,8 @@
 			</div>
 			
             <!-- 实例演示菜单 -->
-			<div class="tab-pane fade height-full" id="demo" th:if="${demoEnabled}">
+			<shiro:hasRole name="sys">
+				<div class="tab-pane fade height-full" id="demo" th:if="${demoEnabled}">
 			  <ul class="nav">
 			    <li>
 			      <a href="javascript:;"><i class="fa fa-edit"></i> <span class="nav-label">表单</span><span class="fa arrow"></span></a>
@@ -205,6 +206,7 @@
 			    </li>
 			  </ul>
 			</div>
+			</shiro:hasRole>
         </div>
     </nav>
     <!--左侧导航结束-->
@@ -234,13 +236,14 @@
                     </li>
 	                </th:block>
 					  
-					  <shiro:hasRole name="sys">
+					<shiro:hasRole name="sys">
 						<li role="presentation" id="tab_demo" th:if="${demoEnabled}">
-						  <a data-toggle="tab" href="#demo">
-							<i class="fa fa-desktop"></i> <span>实例演示</span>
-						  </a>
+							<a data-toggle="tab" href="#demo">
+								<i class="fa fa-desktop"></i>
+								<span>实例演示</span>
+							</a>
 						</li>
-					  </shiro:hasRole>
+					</shiro:hasRole>
 					  
 				  </ul>
 				</div>

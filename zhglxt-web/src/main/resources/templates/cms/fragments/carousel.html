@@ -1,0 +1,37 @@
+<div th:fragment="carousel">
+    <div class="loock">
+        <!-- Carousel ================================================== -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" th:if="${not #lists.isEmpty(advertisings)}">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" th:data-slide-to="${advertisingStat.index}"
+                    th:each="advertising,advertisingStat : ${advertisings}"
+                    th:class="${advertisingStat.index == 0 ?'active':''}"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div th:class="${advertisingStat.index == 0? 'item active ':'item'}"
+                     th:each="advertising,advertisingStat : ${advertisings}">
+                    <img class="first-slide" th:src="${advertising.imageUrl}" th:alt="${advertising.name}">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1 th:if="${not #strings.isEmpty(advertising.title)}" th:text="${advertising.title}"></h1>
+                            <p th:if="${not #strings.isEmpty(advertising.content)}" th:text="${advertising.content}"></p>
+                            <p th:if="${not #strings.isEmpty(advertising.jumpUrl)}">
+                                <a class="btn btn-lg btn-primary" th:href="${advertising.jumpUrl}" th:target="_blank"
+                                   role="button">查看</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">上一页</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">下一页</span>
+            </a>
+        </div><!-- /.carousel -->
+    </div>
+</div>

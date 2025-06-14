@@ -1,0 +1,40 @@
+<div th:fragment="developHistorys">
+    <div class="container" th:if="${not #lists.isEmpty(developHistorys)}">
+        <div class="row">
+            <div class="text-line">
+                <h2>
+                    <span><b th:text="${developHistorys.get(0).columnName}"></b></span>
+                </h2>
+            </div>
+            <hr>
+            <div class="col-sm-12 timeline timeline-line-dotted">
+                <div th:each="developHistory,developHistoryStat : ${developHistorys}">
+                    <span class="timeline-label">
+                        <span class="label label-primary" th:if="${not #strings.isEmpty(developHistory.title)}"
+                              th:text="${developHistory.title}"></span>
+                    </span>
+                    <div class="timeline-item">
+                        <div class="timeline-point timeline-point-success">
+                            <i class="fa fa-money"></i>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-heading">
+                                <h4 th:if="${not #strings.isEmpty(developHistory.description)}"
+                                    th:text="${developHistory.description}"></h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p th:if="${not #strings.isEmpty(developHistory.content)}"
+                                   th:utext="${developHistory.content}"></p>
+                            </div>
+                            <div class="timeline-footer">
+                                <p class="text-right" th:if="${not #strings.isEmpty(developHistory.title)}"
+                                   th:text="${developHistory.title}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+    </div>
+</div>

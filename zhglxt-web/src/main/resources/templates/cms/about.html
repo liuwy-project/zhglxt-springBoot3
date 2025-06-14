@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" th:content="${site.description}">
+    <meta name="keywords" th:content="${site.keywords}">
+    <meta name="author" th:content="${site.name}">
+    <link th:href="@{/favicon.png}" rel="shortcut icon"/>
+    
+    <title>企业官网 - 关于我们</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/cms/bootstrap-v3/css/bootstrap.min.css}" rel="stylesheet"/>
+    
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link th:href="@{/cms/bootstrap-v3/css/ie10-viewport-bug-workaround.css}" rel="stylesheet"/>
+    
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]>
+    <script th:src="@{/cms/bootstrap-v3/docs/assets/js/ie8-responsive-file-warning.js}"></script><![endif]-->
+    <script th:src="@{/cms/bootstrap-v3/docs/assets/js/ie-emulation-modes-warning.js}"></script>
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Custom styles for this template -->
+    <link th:href="@{/cms/css/carousel.css}" rel="stylesheet">
+    <!--时间轴-->
+    <link th:href="@{/cms/css/timeline.css}" rel="stylesheet">
+    <!--自定义样式-->
+    <style th:replace="cms/fragments/head-style :: head-style"></style>
+</head>
+<body>
+<!-- 导航栏 -->
+<header th:replace="cms/fragments/navbar :: navbar"></header>
+
+<!-- 主要内容区域 -->
+<div class="container marketing">
+    <!-- 关于我们 -->
+    <div th:replace="cms/fragments/abouts :: abouts"></div>
+    
+    <!-- 页脚 -->
+    <footer th:replace="cms/fragments/footer :: footer"></footer>
+</div>
+
+<!-- 页脚脚本 -->
+<div th:replace="cms/fragments/scripts :: scripts"></div>
+</body>
+</html>

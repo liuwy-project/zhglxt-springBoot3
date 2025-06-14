@@ -66,7 +66,7 @@ public class IndexController extends BaseController {
 
         //栏目
         Map<String, Object> paramMap = WebUtil.paramsToMap(request.getParameterMap());
-        paramMap.put("parentId", rootColumn.get(0).getId());//父id为当前站点，顶级栏目id
+        paramMap.put("parentId", rootColumn.getFirst().getId());//父id为当前站点，顶级栏目id
         paramMap.put("display", status);//0：显示的
         paramMap.put("siteId", site.getId());//站点id
         List<Column> columns = columnService.selectCMSColumnList(paramMap);
@@ -126,7 +126,7 @@ public class IndexController extends BaseController {
         model.addAttribute("developHistorys", developHistoryList);
 
 
-        return prefix + "/cmsMainIndex";
+        return prefix + "/index";
     }
 
     @RequestMapping("/{url}.html")
@@ -142,7 +142,7 @@ public class IndexController extends BaseController {
         List<Column> rootColumn = columnService.selectColumnList(rootColumnMap);
 
         Map<String, Object> paramMap = WebUtil.paramsToMap(request.getParameterMap());
-        paramMap.put("parentId", rootColumn.get(0).getId());//父id为当前站点，顶级栏目id
+        paramMap.put("parentId", rootColumn.getFirst().getId());//父id为当前站点，顶级栏目id
         paramMap.put("display", status);//0：显示的
         paramMap.put("siteId", site.getId());//站点id
         List<Column> columns = columnService.selectCMSColumnList(paramMap);
@@ -155,6 +155,6 @@ public class IndexController extends BaseController {
         List<Article> tabList = articleMapper.selectArticleList(tabParamMap);
         model.addAttribute(url + "s", tabList);
 
-        return prefix + "/cmsMainIndex";
+        return prefix + "/" +url;
     }
 }

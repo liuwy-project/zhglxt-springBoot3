@@ -1,0 +1,14 @@
+<div th:fragment="contacts">
+    <div class="container" th:if="${not #lists.isEmpty(contacts)}">
+        <hr>
+        <div class="row">
+            <div class="container col-sm-12" th:each="contact,contactStat : ${contacts}">
+                <img th:if="${contactStat.index==0}" th:src="${contact.imageUrl}"
+                     class="img-responsive center-block" alt="联系我们">
+                <p th:if="${contactStat.index==0 && not #strings.isEmpty(contact.content)}"
+                   th:utext="${contact.content}"></p>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+    </div>
+</div>

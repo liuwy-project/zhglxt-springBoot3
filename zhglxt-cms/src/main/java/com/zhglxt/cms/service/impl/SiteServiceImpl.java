@@ -89,11 +89,11 @@ public class SiteServiceImpl implements ISiteService {
         List<Article> articleList = articleMapper.selectArticleListBySiteIds(ids);
         List<String> articleIds = Lists.newArrayList();
         if(!CollectionUtils.isEmpty(articleList)){
-            articleIds.addAll(articleList.stream().map(Article::getId).collect(Collectors.toList()));
+            articleIds.addAll(articleList.stream().map(Article::getId).toList());
         }
         //2.1、根据文章id删除该文章对应的数据
         if(!CollectionUtils.isEmpty(articleIds)){
-            articleMapper.deleteArticleContentByArticleIds(articleIds.stream().toArray(String[]::new));
+            articleMapper.deleteArticleContentByArticleIds(articleIds.toArray(String[]::new));
         }
 
         //3、删除文章
@@ -109,7 +109,6 @@ public class SiteServiceImpl implements ISiteService {
         Map<String, Object> siteParamMap = new HashMap<>();
         siteParamMap.put("status", "0");//0：显示的
         List<Site> sites = siteMapper.selectSiteList(siteParamMap);
-        Site site = CollectionUtils.isEmpty(sites) ? new Site() : sites.get(0);
-        return site;
+        return CollectionUtils.isEmpty(sites) ? new Site() : sites.getFirst();
     }
 }

@@ -1,0 +1,42 @@
+<div th:fragment="solutions">
+    <div th:if="${not #lists.isEmpty(solutions)}">
+        <div class="row">
+            <div class="text-line">
+                <h2>
+                    <span><b th:text="${solutions.get(0).columnName}"></b></span>
+                </h2>
+            </div>
+            <hr>
+            <div class="col-lg-4" th:each="solution,solutionsStat : ${solutions}">
+                <img class="img-circle" th:if="${not #strings.isEmpty(solution.imageUrl)}"
+                     th:src="${solution.imageUrl}"
+                     alt="Generic placeholder image" width="140" height="140">
+                <h2 th:if="${not #strings.isEmpty(solution.title)}" th:text="${solution.title}"></h2>
+                <p th:if="${not #strings.isEmpty(solution.description)}"
+                   th:text="${#strings.abbreviate(solution.description,98)}"></p>
+                <p><a class="btn btn-primary btn-lg" data-toggle="modal" th:data-target="${'#'+solution.id}">查看详情
+                    &raquo;</a></p>
+                <!-- 模态框（Modal） -->
+                <div class="modal fade" th:id="${solution.id}" th:tabindex="${solutionsStat.index}" role="dialog"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    &times;
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p th:utext="${solution.content}"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                </div>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+        <hr class="featurette-divider">
+    </div>
+</div>

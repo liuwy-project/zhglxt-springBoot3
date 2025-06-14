@@ -1,0 +1,48 @@
+<div th:fragment="newss">
+    <div th:if="${not #lists.isEmpty(newss)}">
+        <div class="text-line">
+            <h2>
+                <span><b th:text="${newss.get(0).columnName}"></b></span>
+            </h2>
+        </div>
+        <hr>
+        <div th:each="news,newsStat : ${newss}">
+            <div class="row featurette">
+                <div th:class="${newsStat.index%2 == 0? 'col-md-7 col-md-push-5': 'col-md-7'}">
+                    <h2 class="featurette-heading" th:if="${not #strings.isEmpty(news.title)}"
+                        th:text="${news.title}">
+                        <span class="text-muted">It'll blow your mind.</span>
+                    </h2>
+                    <a style="color: #0f74a8;cursor: pointer" class="lead" data-toggle="modal"
+                       th:data-target="${'#'+news.id}" th:if="${not #strings.isEmpty(news.description)}"
+                       th:text="${#strings.abbreviate(news.description,180)}"></a>
+                </div>
+                <div th:class="${newsStat.index%2 == 0? 'col-md-5 col-md-pull-7': 'col-md-5'}">
+                    <img class="featurette-image img-responsive center-block"
+                         th:if="${not #strings.isEmpty(news.imageUrl)}" th:src="${news.imageUrl}"
+                         alt="Generic placeholder image">
+                </div>
+                <!-- 模态框（Modal） -->
+                <div class="modal fade" th:id="${news.id}" th:tabindex="${newsStat.index}" role="dialog"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    &times;
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p th:utext="${news.content}"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                </div>
+            </div>
+            <hr class="featurette-divider">
+        </div>
+    </div>
+</div>

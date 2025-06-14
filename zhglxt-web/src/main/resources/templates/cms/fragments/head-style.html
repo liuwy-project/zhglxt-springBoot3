@@ -1,0 +1,55 @@
+<div th:fragment="head-style">
+    <style>
+        /*导航栏居中*/
+        .navbar-nav {
+            float: none;
+            text-align: center;
+        }
+    
+        ul.nav.navbar-nav li {
+            float: none;
+            display: inline-block;
+            margin: 0em;
+        }
+    
+        /*导航栏字体*/
+        #navbar > ul > li > a {
+            font-size: 17px;
+        }
+    
+        #navbar > ul > li.dropdown > ul > li > a {
+            font-size: 16px;
+        }
+    
+        /*鼠标悬停展开下拉菜单*/
+        @media screen and (min-width: 768px) {
+            .navbar .nav > li .dropdown-menu {
+                margin: 0;
+            }
+    
+            .navbar .nav > li:hover .dropdown-menu {
+                display: block;
+            }
+        }
+    
+        /*调整固定导航-顶部遮挡*/
+        .loock {
+            padding-top: 3.6em;
+        }
+    
+        .text-line {
+            position: relative;
+            padding: 30px 0;
+            text-align: center;
+        }
+    
+        .text-line > h2 > span {
+            font-size: 35px;
+        }
+    
+        /*查看详情*/
+        .modal {
+            padding-top: 3.6em;
+        }
+    </style>
+</div>

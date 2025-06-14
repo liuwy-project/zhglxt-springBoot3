@@ -1,0 +1,18 @@
+<div th:fragment="scripts">
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script>window.jQuery || document.write('<script th:src="@{/js/jquery.min.js}"><\/script>')</script>
+    <script th:src="@{/cms/bootstrap-v3/dist/js/bootstrap.min.js}"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script th:src="@{/cms/bootstrap-v3/docs/assets/js/vendor/holder.min.js}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script th:src="@{/cms/bootstrap-v3/docs/assets/js/ie10-viewport-bug-workaround.js}"></script>
+    <div style="display:none">
+        <audio th:src="${site.bgMusic}" autoplay loop></audio>
+    </div>
+    <script type="text/javascript">
+    
+    </script>
+</div>
