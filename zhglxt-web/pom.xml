@@ -78,10 +78,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.5.15</version>
-                <configuration>
-                    <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
-                </configuration>
+                <version>3.3.5</version>
+                <!--
+                    Spring Boot 2.x 中，spring-boot-maven-plugin 用 <fork>true</fork> 开启 DevTools 热部署的进程分离特性
+                    Spring Boot 3.x 的 DevTools 热部署逻辑已内置优化，底层实现改为自动处理，无需手动通过 <fork> 开启，删除后不影响功能
+                -->
                 <executions>
                     <execution>
                         <goals>
@@ -93,10 +94,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>3.3.2</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <warName>${war.final.name}</warName>
                 </configuration>
             </plugin>
             <!-- YUI Compressor (CSS/JS压缩) 
@@ -133,7 +133,7 @@
                 </configuration>
             </plugin> -->
         </plugins>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>${war.final.name}</finalName>
     </build>
 
 </project>

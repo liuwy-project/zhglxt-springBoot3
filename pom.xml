@@ -9,7 +9,7 @@
 
     <name>zhglxt</name>
     <url>https://www.zhglxt.com</url>
-    <description>综合管理系统</description>
+    <description>WEB应用系统</description>
     
     <properties>
         <zhglxt.version>4.8.1</zhglxt.version>
@@ -27,7 +27,7 @@
         <fastjson.version>1.2.83</fastjson.version>
         <oshi.version>6.8.1</oshi.version>
         <commons.io.version>2.19.0</commons.io.version>
-        <poi.version>4.1.2</poi.version>
+        <poi.version>5.4.0</poi.version>
         <velocity.version>2.3</velocity.version>
         <springdoc.version>2.6.0</springdoc.version>
     </properties>
@@ -113,7 +113,7 @@
             <dependency>
                 <groupId>com.mysql</groupId>
                 <artifactId>mysql-connector-j</artifactId>
-                <version>8.1.0</version>
+                <version>8.2.0</version>
             </dependency>
 
             <dependency>
@@ -252,11 +252,6 @@
                     <target>${java.version}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.3.1</version>
             </plugin>
         </plugins>
     </build>
