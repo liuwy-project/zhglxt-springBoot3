@@ -1,10 +1,11 @@
 package com.zhglxt.framework.manager;
 
+import com.zhglxt.common.utils.Threads;
+import com.zhglxt.common.utils.spring.SpringUtils;
+
 import java.util.TimerTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import com.zhglxt.common.utils.Threads;
-import com.zhglxt.common.utils.spring.SpringUtils;
 
 /**
  * 异步任务管理器

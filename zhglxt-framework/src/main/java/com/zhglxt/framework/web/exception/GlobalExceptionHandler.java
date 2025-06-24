@@ -1,5 +1,13 @@
 package com.zhglxt.framework.web.exception;
 
+import com.zhglxt.common.core.domain.AjaxResult;
+import com.zhglxt.common.core.text.Convert;
+import com.zhglxt.common.exception.DemoModeException;
+import com.zhglxt.common.exception.ServiceException;
+import com.zhglxt.common.utils.ServletUtils;
+import com.zhglxt.common.utils.StringUtils;
+import com.zhglxt.common.utils.html.EscapeUtil;
+import com.zhglxt.common.utils.security.PermissionUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.shiro.authz.AuthorizationException;
 import org.slf4j.Logger;
@@ -11,14 +19,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.ModelAndView;
-import com.zhglxt.common.core.domain.AjaxResult;
-import com.zhglxt.common.core.text.Convert;
-import com.zhglxt.common.exception.DemoModeException;
-import com.zhglxt.common.exception.ServiceException;
-import com.zhglxt.common.utils.ServletUtils;
-import com.zhglxt.common.utils.StringUtils;
-import com.zhglxt.common.utils.html.EscapeUtil;
-import com.zhglxt.common.utils.security.PermissionUtils;
 
 /**
  * 全局异常处理器

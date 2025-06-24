@@ -1,6 +1,7 @@
 package com.zhglxt.quartz.mapper;
 
 import com.zhglxt.quartz.domain.SysJobLog;
+
 import java.util.List;
 
 /**

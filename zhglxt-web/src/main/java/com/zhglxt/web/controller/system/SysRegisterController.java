@@ -1,18 +1,18 @@
 package com.zhglxt.web.controller.system;
 
 import com.zhglxt.common.config.GlobalConfig;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import com.zhglxt.common.core.controller.BaseController;
 import com.zhglxt.common.core.domain.AjaxResult;
 import com.zhglxt.common.core.domain.entity.SysUser;
 import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.framework.shiro.service.SysRegisterService;
 import com.zhglxt.system.service.ISysConfigService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 注册验证

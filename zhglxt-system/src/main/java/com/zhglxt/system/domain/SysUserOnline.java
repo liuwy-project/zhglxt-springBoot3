@@ -1,10 +1,11 @@
 package com.zhglxt.system.domain;
 
-import java.util.Date;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import com.zhglxt.common.core.domain.BaseEntity;
 import com.zhglxt.common.enums.OnlineStatus;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import java.util.Date;
 
 /**
  * 当前在线会话 sys_user_online

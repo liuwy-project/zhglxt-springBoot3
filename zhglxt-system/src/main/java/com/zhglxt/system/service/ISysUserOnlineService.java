@@ -1,8 +1,9 @@
 package com.zhglxt.system.service;
 
+import com.zhglxt.system.domain.SysUserOnline;
+
 import java.util.Date;
 import java.util.List;
-import com.zhglxt.system.domain.SysUserOnline;
 
 /**
  * 在线用户 服务层

@@ -1,8 +1,8 @@
 package com.zhglxt.common.utils;
 
+import com.zhglxt.common.utils.spring.SpringUtils;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
-import com.zhglxt.common.utils.spring.SpringUtils;
 
 /**
  * 获取i18n资源文件

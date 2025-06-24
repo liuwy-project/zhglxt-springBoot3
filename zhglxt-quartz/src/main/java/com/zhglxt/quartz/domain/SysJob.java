@@ -1,16 +1,18 @@
 package com.zhglxt.quartz.domain;
 
-import java.io.Serializable;
-import java.util.Date;
-import jakarta.validation.constraints.*;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import com.zhglxt.common.annotation.Excel;
 import com.zhglxt.common.annotation.Excel.ColumnType;
 import com.zhglxt.common.constant.ScheduleConstants;
 import com.zhglxt.common.core.domain.BaseEntity;
 import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.quartz.util.CronUtils;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 定时任务调度表 sys_job

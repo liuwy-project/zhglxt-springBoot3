@@ -1,17 +1,18 @@
 package com.zhglxt.framework.shiro.rememberMe;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.subject.Subject;
-import org.apache.shiro.subject.SubjectContext;
-import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import com.zhglxt.common.core.domain.entity.SysRole;
 import com.zhglxt.common.core.domain.entity.SysUser;
 import com.zhglxt.common.utils.spring.SpringUtils;
 import com.zhglxt.framework.shiro.service.SysLoginService;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
+import org.apache.shiro.subject.SubjectContext;
+import org.apache.shiro.web.mgt.CookieRememberMeManager;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * 自定义CookieRememberMeManager

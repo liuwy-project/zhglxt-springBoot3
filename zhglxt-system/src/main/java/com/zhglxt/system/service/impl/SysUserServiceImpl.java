@@ -1,18 +1,5 @@
 package com.zhglxt.system.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import com.zhglxt.common.utils.uuid.UUID;
-import jakarta.validation.ConstraintViolationException;
-import jakarta.validation.Validator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.CollectionUtils;
 import com.zhglxt.common.annotation.DataScope;
 import com.zhglxt.common.constant.UserConstants;
 import com.zhglxt.common.core.domain.entity.SysRole;
@@ -29,14 +16,22 @@ import com.zhglxt.common.utils.spring.SpringUtils;
 import com.zhglxt.system.domain.SysPost;
 import com.zhglxt.system.domain.SysUserPost;
 import com.zhglxt.system.domain.SysUserRole;
-import com.zhglxt.system.mapper.SysPostMapper;
-import com.zhglxt.system.mapper.SysRoleMapper;
-import com.zhglxt.system.mapper.SysUserMapper;
-import com.zhglxt.system.mapper.SysUserPostMapper;
-import com.zhglxt.system.mapper.SysUserRoleMapper;
+import com.zhglxt.system.mapper.*;
 import com.zhglxt.system.service.ISysConfigService;
 import com.zhglxt.system.service.ISysDeptService;
 import com.zhglxt.system.service.ISysUserService;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Validator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 用户 业务层处理

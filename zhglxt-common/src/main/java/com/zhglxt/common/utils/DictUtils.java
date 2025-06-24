@@ -1,9 +1,10 @@
 package com.zhglxt.common.utils;
 
-import java.util.List;
-import org.springframework.stereotype.Component;
 import com.zhglxt.common.constant.Constants;
 import com.zhglxt.common.core.domain.entity.SysDictData;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * 字典工具类

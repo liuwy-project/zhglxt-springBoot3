@@ -1,6 +1,8 @@
 package com.zhglxt.framework.aspectj;
 
-import java.util.Objects;
+import com.zhglxt.common.annotation.DataSource;
+import com.zhglxt.common.config.datasource.DynamicDataSourceContextHolder;
+import com.zhglxt.common.utils.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -11,9 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import com.zhglxt.common.annotation.DataSource;
-import com.zhglxt.common.config.datasource.DynamicDataSourceContextHolder;
-import com.zhglxt.common.utils.StringUtils;
+
+import java.util.Objects;
 
 /**
  * 多数据源处理

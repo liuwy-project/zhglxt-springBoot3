@@ -1,11 +1,5 @@
 package com.zhglxt.framework.shiro.web.filter;
 
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
-import org.apache.shiro.session.SessionException;
-import org.apache.shiro.subject.Subject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.zhglxt.common.constant.Constants;
 import com.zhglxt.common.core.domain.entity.SysUser;
 import com.zhglxt.common.utils.MessageUtils;
@@ -15,6 +9,12 @@ import com.zhglxt.common.utils.spring.SpringUtils;
 import com.zhglxt.framework.manager.AsyncManager;
 import com.zhglxt.framework.manager.factory.AsyncFactory;
 import com.zhglxt.system.service.ISysUserOnlineService;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import org.apache.shiro.session.SessionException;
+import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 退出过滤器

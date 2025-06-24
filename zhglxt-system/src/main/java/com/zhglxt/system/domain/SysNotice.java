@@ -1,11 +1,11 @@
 package com.zhglxt.system.domain;
 
+import com.zhglxt.common.core.domain.BaseEntity;
+import com.zhglxt.common.xss.Xss;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import com.zhglxt.common.core.domain.BaseEntity;
-import com.zhglxt.common.xss.Xss;
 
 /**
  * 通知公告表 sys_notice

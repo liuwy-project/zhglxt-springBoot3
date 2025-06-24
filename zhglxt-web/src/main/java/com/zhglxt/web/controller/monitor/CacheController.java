@@ -1,5 +1,8 @@
 package com.zhglxt.web.controller.monitor;
 
+import com.zhglxt.common.core.controller.BaseController;
+import com.zhglxt.common.core.domain.AjaxResult;
+import com.zhglxt.framework.web.service.CacheService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,9 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.zhglxt.common.core.controller.BaseController;
-import com.zhglxt.common.core.domain.AjaxResult;
-import com.zhglxt.framework.web.service.CacheService;
 
 /**
  * 缓存监控

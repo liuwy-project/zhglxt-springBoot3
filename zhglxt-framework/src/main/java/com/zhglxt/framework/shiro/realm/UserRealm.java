@@ -1,16 +1,12 @@
 package com.zhglxt.framework.shiro.realm;
 
-import java.util.HashSet;
-import java.util.Set;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.ExcessiveAttemptsException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.LockedAccountException;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import com.zhglxt.common.core.domain.entity.SysUser;
+import com.zhglxt.common.exception.user.*;
+import com.zhglxt.common.utils.ShiroUtils;
+import com.zhglxt.framework.shiro.service.SysLoginService;
+import com.zhglxt.system.service.ISysMenuService;
+import com.zhglxt.system.service.ISysRoleService;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.cache.Cache;
@@ -20,17 +16,9 @@ import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.zhglxt.common.core.domain.entity.SysUser;
-import com.zhglxt.common.exception.user.CaptchaException;
-import com.zhglxt.common.exception.user.RoleBlockedException;
-import com.zhglxt.common.exception.user.UserBlockedException;
-import com.zhglxt.common.exception.user.UserNotExistsException;
-import com.zhglxt.common.exception.user.UserPasswordNotMatchException;
-import com.zhglxt.common.exception.user.UserPasswordRetryLimitExceedException;
-import com.zhglxt.common.utils.ShiroUtils;
-import com.zhglxt.framework.shiro.service.SysLoginService;
-import com.zhglxt.system.service.ISysMenuService;
-import com.zhglxt.system.service.ISysRoleService;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 自定义Realm 处理登录 权限

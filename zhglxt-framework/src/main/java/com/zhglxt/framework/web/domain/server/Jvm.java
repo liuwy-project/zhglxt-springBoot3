@@ -1,8 +1,9 @@
 package com.zhglxt.framework.web.domain.server;
 
-import java.lang.management.ManagementFactory;
 import com.zhglxt.common.utils.Arith;
 import com.zhglxt.common.utils.DateUtils;
+
+import java.lang.management.ManagementFactory;
 
 /**
  * JVM相关信息

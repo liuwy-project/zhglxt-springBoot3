@@ -1,18 +1,18 @@
 package com.zhglxt.framework.shiro.session;
 
-import java.io.Serializable;
-import java.util.Date;
-
+import com.zhglxt.common.enums.OnlineStatus;
 import com.zhglxt.common.utils.StringUtils;
+import com.zhglxt.framework.manager.AsyncManager;
+import com.zhglxt.framework.manager.factory.AsyncFactory;
+import com.zhglxt.framework.shiro.service.SysShiroService;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import com.zhglxt.common.enums.OnlineStatus;
-import com.zhglxt.framework.manager.AsyncManager;
-import com.zhglxt.framework.manager.factory.AsyncFactory;
-import com.zhglxt.framework.shiro.service.SysShiroService;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 针对自定义的ShiroSession的db操作

@@ -1,7 +1,8 @@
 package com.zhglxt.system.mapper;
 
-import java.util.List;
 import com.zhglxt.system.domain.SysRoleMenu;
+
+import java.util.List;
 
 /**
  * 角色与菜单关联表 数据层

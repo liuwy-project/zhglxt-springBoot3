@@ -1,9 +1,10 @@
 package com.zhglxt.system.service;
 
-import java.util.List;
 import com.zhglxt.common.core.domain.Ztree;
 import com.zhglxt.common.core.domain.entity.SysDept;
 import com.zhglxt.common.core.domain.entity.SysRole;
+
+import java.util.List;
 
 /**
  * 部门管理 服务层

@@ -1,8 +1,8 @@
 package com.zhglxt.quartz.util;
 
+import com.zhglxt.quartz.domain.SysJob;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;
-import com.zhglxt.quartz.domain.SysJob;
 
 /**
  * 定时任务处理（禁止并发执行）

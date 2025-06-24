@@ -1,8 +1,9 @@
 package com.zhglxt.common.utils.uuid;
 
-import java.util.concurrent.atomic.AtomicInteger;
 import com.zhglxt.common.utils.DateUtils;
 import com.zhglxt.common.utils.StringUtils;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author ruoyi 序列生成类

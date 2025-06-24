@@ -1,11 +1,5 @@
 package com.zhglxt.framework.shiro.service;
 
-import java.util.concurrent.atomic.AtomicInteger;
-import org.apache.shiro.cache.Cache;
-import org.apache.shiro.cache.CacheManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import com.zhglxt.common.constant.Constants;
 import com.zhglxt.common.constant.ShiroConstants;
 import com.zhglxt.common.core.domain.entity.SysUser;
@@ -16,6 +10,13 @@ import com.zhglxt.common.utils.security.Md5Utils;
 import com.zhglxt.framework.manager.AsyncManager;
 import com.zhglxt.framework.manager.factory.AsyncFactory;
 import jakarta.annotation.PostConstruct;
+import org.apache.shiro.cache.Cache;
+import org.apache.shiro.cache.CacheManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 登录密码方法

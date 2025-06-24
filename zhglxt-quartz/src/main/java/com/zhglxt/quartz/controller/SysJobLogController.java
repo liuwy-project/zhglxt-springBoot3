@@ -1,16 +1,5 @@
 package com.zhglxt.quartz.controller;
 
-import java.util.List;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import com.zhglxt.common.annotation.Log;
 import com.zhglxt.common.core.controller.BaseController;
 import com.zhglxt.common.core.domain.AjaxResult;
@@ -22,6 +11,13 @@ import com.zhglxt.quartz.domain.SysJob;
 import com.zhglxt.quartz.domain.SysJobLog;
 import com.zhglxt.quartz.service.ISysJobLogService;
 import com.zhglxt.quartz.service.ISysJobService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 调度日志操作处理

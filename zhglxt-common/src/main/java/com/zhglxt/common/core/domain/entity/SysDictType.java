@@ -1,11 +1,12 @@
 package com.zhglxt.common.core.domain.entity;
 
-import jakarta.validation.constraints.*;
+import com.zhglxt.common.annotation.Excel;
+import com.zhglxt.common.core.domain.BaseEntity;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import com.zhglxt.common.annotation.Excel;
-import com.zhglxt.common.annotation.Excel.ColumnType;
-import com.zhglxt.common.core.domain.BaseEntity;
 
 /**
  * 字典类型表 sys_dict_type

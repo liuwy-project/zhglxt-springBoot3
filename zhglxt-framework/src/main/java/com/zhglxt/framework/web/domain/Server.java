@@ -1,16 +1,8 @@
 package com.zhglxt.framework.web.domain;
 
-import java.net.UnknownHostException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Properties;
 import com.zhglxt.common.utils.Arith;
 import com.zhglxt.common.utils.IpUtils;
-import com.zhglxt.framework.web.domain.server.Cpu;
-import com.zhglxt.framework.web.domain.server.Jvm;
-import com.zhglxt.framework.web.domain.server.Mem;
-import com.zhglxt.framework.web.domain.server.Sys;
-import com.zhglxt.framework.web.domain.server.SysFile;
+import com.zhglxt.framework.web.domain.server.*;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.TickType;
@@ -20,6 +12,11 @@ import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
 import oshi.software.os.OperatingSystem;
 import oshi.util.Util;
+
+import java.net.UnknownHostException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Properties;
 
 /**
  * 服务器相关信息

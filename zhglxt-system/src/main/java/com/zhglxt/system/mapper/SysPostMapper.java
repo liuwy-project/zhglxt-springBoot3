@@ -1,7 +1,8 @@
 package com.zhglxt.system.mapper;
 
-import java.util.List;
 import com.zhglxt.system.domain.SysPost;
+
+import java.util.List;
 
 /**
  * 岗位信息 数据层

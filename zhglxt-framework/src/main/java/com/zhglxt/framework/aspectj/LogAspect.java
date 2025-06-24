@@ -1,7 +1,18 @@
 package com.zhglxt.framework.aspectj;
 
-import java.util.Collection;
-import java.util.Map;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.support.spring.PropertyPreFilters;
+import com.zhglxt.common.annotation.Log;
+import com.zhglxt.common.core.domain.entity.SysUser;
+import com.zhglxt.common.core.text.Convert;
+import com.zhglxt.common.enums.BusinessStatus;
+import com.zhglxt.common.utils.ExceptionUtil;
+import com.zhglxt.common.utils.ServletUtils;
+import com.zhglxt.common.utils.ShiroUtils;
+import com.zhglxt.common.utils.StringUtils;
+import com.zhglxt.framework.manager.AsyncManager;
+import com.zhglxt.framework.manager.factory.AsyncFactory;
+import com.zhglxt.system.domain.SysOperLog;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.ArrayUtils;
@@ -16,19 +27,9 @@ import org.springframework.core.NamedThreadLocal;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.support.spring.PropertyPreFilters;
-import com.zhglxt.common.annotation.Log;
-import com.zhglxt.common.core.domain.entity.SysUser;
-import com.zhglxt.common.core.text.Convert;
-import com.zhglxt.common.enums.BusinessStatus;
-import com.zhglxt.common.utils.ExceptionUtil;
-import com.zhglxt.common.utils.ServletUtils;
-import com.zhglxt.common.utils.ShiroUtils;
-import com.zhglxt.common.utils.StringUtils;
-import com.zhglxt.framework.manager.AsyncManager;
-import com.zhglxt.framework.manager.factory.AsyncFactory;
-import com.zhglxt.system.domain.SysOperLog;
+
+import java.util.Collection;
+import java.util.Map;
 
 /**
  * 操作日志记录处理

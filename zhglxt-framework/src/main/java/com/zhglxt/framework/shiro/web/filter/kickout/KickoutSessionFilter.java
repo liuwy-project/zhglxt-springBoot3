@@ -1,9 +1,11 @@
 package com.zhglxt.framework.shiro.web.filter.kickout;
 
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.ArrayDeque;
-import java.util.Deque;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zhglxt.common.constant.ShiroConstants;
+import com.zhglxt.common.core.domain.AjaxResult;
+import com.zhglxt.common.core.domain.entity.SysUser;
+import com.zhglxt.common.utils.ServletUtils;
+import com.zhglxt.common.utils.ShiroUtils;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,12 +18,11 @@ import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zhglxt.common.constant.ShiroConstants;
-import com.zhglxt.common.core.domain.AjaxResult;
-import com.zhglxt.common.core.domain.entity.SysUser;
-import com.zhglxt.common.utils.ServletUtils;
-import com.zhglxt.common.utils.ShiroUtils;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * 登录账号控制过滤器

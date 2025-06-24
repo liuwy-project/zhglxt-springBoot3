@@ -1,13 +1,5 @@
 package com.zhglxt.system.service.impl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import com.zhglxt.common.annotation.DataScope;
 import com.zhglxt.common.constant.UserConstants;
 import com.zhglxt.common.core.domain.entity.SysRole;
@@ -25,6 +17,11 @@ import com.zhglxt.system.mapper.SysRoleMapper;
 import com.zhglxt.system.mapper.SysRoleMenuMapper;
 import com.zhglxt.system.mapper.SysUserRoleMapper;
 import com.zhglxt.system.service.ISysRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.*;
 
 /**
  * 角色 业务层处理

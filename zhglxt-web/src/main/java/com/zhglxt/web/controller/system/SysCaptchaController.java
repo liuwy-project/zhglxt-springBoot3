@@ -1,9 +1,9 @@
 package com.zhglxt.web.controller.system;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+import com.google.code.kaptcha.Constants;
+import com.google.code.kaptcha.Producer;
+import com.zhglxt.common.core.controller.BaseController;
 import jakarta.annotation.Resource;
-import javax.imageio.ImageIO;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,9 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import com.google.code.kaptcha.Constants;
-import com.google.code.kaptcha.Producer;
-import com.zhglxt.common.core.controller.BaseController;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  * 图片验证码（支持算术形式）

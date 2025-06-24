@@ -3,9 +3,7 @@ package com.zhglxt.common.utils;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 
 /**
  * @Description web工具类
@@ -18,16 +16,26 @@ public class WebUtil {
      *
      * @return Map
      */
-    public static Map paramsToMap(Map<String, String[]> requestParametersMap) {
-        Iterator it = requestParametersMap.entrySet().iterator();
-        Map result = new HashMap();
-        while (it.hasNext()) {
-            Entry entry = (Entry) it.next();
-            String[] value = (String[]) entry.getValue();
-            if (value.length == 1) {
-                result.put(entry.getKey(), "'undefined'".equalsIgnoreCase(value[0]) ? null : value[0]);
+    public static Map<String, Object> paramsToMap(Map<String, String[]> requestParametersMap) {
+        if (requestParametersMap == null || requestParametersMap.isEmpty()) {
+            return new HashMap<>();
+        }
+        Map<String, String[]> mutableParams = new HashMap<>(requestParametersMap);
+        Map<String, Object> result = new HashMap<>();
+        for (Map.Entry<String, String[]> entry : mutableParams.entrySet()) {
+            String key = entry.getKey();
+            String[] values = entry.getValue();
+            if (values == null || values.length == 0) {
+                result.put(key, null);
+                continue;
+            }
+            String firstValue = values[0];
+            if ("undefined".equalsIgnoreCase(firstValue) || "'undefined'".equals(firstValue) || firstValue.isEmpty()) {
+                result.put(key, null);
+            } else if (values.length == 1) {
+                result.put(key, firstValue);
             } else {
-                result.put(entry.getKey(), value);
+                result.put(key, values);
             }
         }
         return result;

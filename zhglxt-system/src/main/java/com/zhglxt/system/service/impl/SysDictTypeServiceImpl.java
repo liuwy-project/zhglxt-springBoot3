@@ -1,14 +1,5 @@
 package com.zhglxt.system.service.impl;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import com.zhglxt.common.constant.UserConstants;
 import com.zhglxt.common.core.domain.Ztree;
 import com.zhglxt.common.core.domain.entity.SysDictData;
@@ -20,6 +11,16 @@ import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.system.mapper.SysDictDataMapper;
 import com.zhglxt.system.mapper.SysDictTypeMapper;
 import com.zhglxt.system.service.ISysDictTypeService;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 字典 业务层处理

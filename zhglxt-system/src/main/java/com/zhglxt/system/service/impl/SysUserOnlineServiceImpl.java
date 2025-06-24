@@ -1,20 +1,21 @@
 package com.zhglxt.system.service.impl;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.Deque;
-import java.util.List;
+import com.zhglxt.common.constant.ShiroConstants;
+import com.zhglxt.common.utils.DateUtils;
+import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.common.utils.spring.SpringUtils;
+import com.zhglxt.system.domain.SysUserOnline;
+import com.zhglxt.system.mapper.SysUserOnlineMapper;
+import com.zhglxt.system.service.ISysUserOnlineService;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.zhglxt.common.constant.ShiroConstants;
-import com.zhglxt.common.utils.DateUtils;
-import com.zhglxt.common.utils.StringUtils;
-import com.zhglxt.system.domain.SysUserOnline;
-import com.zhglxt.system.mapper.SysUserOnlineMapper;
-import com.zhglxt.system.service.ISysUserOnlineService;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Deque;
+import java.util.List;
 
 /**
  * 在线用户 服务层处理

@@ -1,12 +1,5 @@
 package com.zhglxt.system.service.impl;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.apache.commons.lang3.ArrayUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import com.zhglxt.common.annotation.DataScope;
 import com.zhglxt.common.constant.UserConstants;
 import com.zhglxt.common.core.domain.Ztree;
@@ -20,6 +13,14 @@ import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.common.utils.spring.SpringUtils;
 import com.zhglxt.system.mapper.SysDeptMapper;
 import com.zhglxt.system.service.ISysDeptService;
+import org.apache.commons.lang3.ArrayUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * 部门管理 服务实现

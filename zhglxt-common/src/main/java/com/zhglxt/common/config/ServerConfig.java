@@ -1,8 +1,8 @@
 package com.zhglxt.common.config;
 
+import com.zhglxt.common.utils.ServletUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;
-import com.zhglxt.common.utils.ServletUtils;
 
 /**
  * 服务相关配置

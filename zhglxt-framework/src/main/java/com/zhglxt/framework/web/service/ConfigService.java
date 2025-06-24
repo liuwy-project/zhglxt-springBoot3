@@ -1,8 +1,8 @@
 package com.zhglxt.framework.web.service;
 
+import com.zhglxt.system.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.zhglxt.system.service.ISysConfigService;
 
 /**
  * html调用 thymeleaf 实现参数管理

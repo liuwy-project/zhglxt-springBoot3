@@ -1,13 +1,14 @@
 package com.zhglxt.framework.shiro.service;
 
-import java.io.Serializable;
-import org.apache.shiro.session.Session;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.framework.shiro.session.OnlineSession;
 import com.zhglxt.system.domain.SysUserOnline;
 import com.zhglxt.system.service.ISysUserOnlineService;
+import org.apache.shiro.session.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
 
 /**
  * 会话db操作处理

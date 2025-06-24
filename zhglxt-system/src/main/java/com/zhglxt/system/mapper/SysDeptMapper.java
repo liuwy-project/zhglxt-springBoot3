@@ -1,8 +1,9 @@
 package com.zhglxt.system.mapper;
 
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 import com.zhglxt.common.core.domain.entity.SysDept;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 部门管理 数据层

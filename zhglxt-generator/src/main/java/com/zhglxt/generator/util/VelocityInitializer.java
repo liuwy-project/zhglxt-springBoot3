@@ -1,8 +1,9 @@
 package com.zhglxt.generator.util;
 
-import java.util.Properties;
-import org.apache.velocity.app.Velocity;
 import com.zhglxt.common.constant.Constants;
+import org.apache.velocity.app.Velocity;
+
+import java.util.Properties;
 
 /**
  * VelocityEngine工厂

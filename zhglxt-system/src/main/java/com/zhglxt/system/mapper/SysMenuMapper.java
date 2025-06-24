@@ -1,8 +1,9 @@
 package com.zhglxt.system.mapper;
 
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 import com.zhglxt.common.core.domain.entity.SysMenu;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 菜单表 数据层

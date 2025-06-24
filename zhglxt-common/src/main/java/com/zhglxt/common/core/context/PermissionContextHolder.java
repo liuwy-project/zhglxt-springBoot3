@@ -1,8 +1,8 @@
 package com.zhglxt.common.core.context;
 
+import com.zhglxt.common.core.text.Convert;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
-import com.zhglxt.common.core.text.Convert;
 
 /**
  * 权限信息

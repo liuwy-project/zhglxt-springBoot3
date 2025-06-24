@@ -1,8 +1,8 @@
 package com.zhglxt.generator.domain;
 
-import jakarta.validation.constraints.NotBlank;
 import com.zhglxt.common.core.domain.BaseEntity;
 import com.zhglxt.common.utils.StringUtils;
+import jakarta.validation.constraints.NotBlank;
 
 /**
  * 代码生成业务字段表 gen_table_column

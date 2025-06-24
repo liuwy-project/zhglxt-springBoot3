@@ -1,12 +1,13 @@
 package com.zhglxt.generator.service.impl;
 
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.zhglxt.common.core.text.Convert;
 import com.zhglxt.generator.domain.GenTableColumn;
 import com.zhglxt.generator.mapper.GenTableColumnMapper;
 import com.zhglxt.generator.service.IGenTableColumnService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 业务字段 服务层实现

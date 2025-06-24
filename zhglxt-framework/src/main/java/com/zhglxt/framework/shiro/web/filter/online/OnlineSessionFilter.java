@@ -1,8 +1,12 @@
 package com.zhglxt.framework.shiro.web.filter.online;
 
-import java.io.IOException;
-
+import com.zhglxt.common.constant.ShiroConstants;
+import com.zhglxt.common.core.domain.entity.SysUser;
+import com.zhglxt.common.enums.OnlineStatus;
+import com.zhglxt.common.utils.ShiroUtils;
 import com.zhglxt.common.utils.StringUtils;
+import com.zhglxt.framework.shiro.session.OnlineSession;
+import com.zhglxt.framework.shiro.session.OnlineSessionDAO;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import org.apache.shiro.session.Session;
@@ -10,12 +14,8 @@ import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Value;
-import com.zhglxt.common.constant.ShiroConstants;
-import com.zhglxt.common.core.domain.entity.SysUser;
-import com.zhglxt.common.enums.OnlineStatus;
-import com.zhglxt.common.utils.ShiroUtils;
-import com.zhglxt.framework.shiro.session.OnlineSession;
-import com.zhglxt.framework.shiro.session.OnlineSessionDAO;
+
+import java.io.IOException;
 
 /**
  * 自定义访问控制

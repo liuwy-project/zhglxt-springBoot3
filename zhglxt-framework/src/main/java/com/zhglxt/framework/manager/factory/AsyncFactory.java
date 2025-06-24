@@ -1,14 +1,7 @@
 package com.zhglxt.framework.manager.factory;
 
-import java.util.TimerTask;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.zhglxt.common.constant.Constants;
-import com.zhglxt.common.utils.AddressUtils;
-import com.zhglxt.common.utils.LogUtils;
-import com.zhglxt.common.utils.ServletUtils;
-import com.zhglxt.common.utils.ShiroUtils;
-import com.zhglxt.common.utils.StringUtils;
+import com.zhglxt.common.utils.*;
 import com.zhglxt.common.utils.spring.SpringUtils;
 import com.zhglxt.framework.shiro.session.OnlineSession;
 import com.zhglxt.system.domain.SysLogininfor;
@@ -18,6 +11,10 @@ import com.zhglxt.system.service.ISysOperLogService;
 import com.zhglxt.system.service.ISysUserOnlineService;
 import com.zhglxt.system.service.impl.SysLogininforServiceImpl;
 import eu.bitwalker.useragentutils.UserAgent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.TimerTask;
 
 /**
  * 异步工厂（产生任务用）
@@ -98,7 +95,9 @@ public class AsyncFactory
             @Override
             public void run()
             {
-                String address = AddressUtils.getRealAddressByIP(ip);
+                // String address = AddressUtils.getRealAddressByIP(ip);
+                String address = AddressUtils.getRealAddressByIp2region(ip);
+
                 StringBuilder s = new StringBuilder();
                 s.append(LogUtils.getBlock(ip));
                 s.append(address);

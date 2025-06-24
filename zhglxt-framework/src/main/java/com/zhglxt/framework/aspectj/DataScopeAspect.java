@@ -1,11 +1,5 @@
 package com.zhglxt.framework.aspectj;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.springframework.stereotype.Component;
 import com.zhglxt.common.annotation.DataScope;
 import com.zhglxt.common.constant.UserConstants;
 import com.zhglxt.common.core.context.PermissionContextHolder;
@@ -15,6 +9,13 @@ import com.zhglxt.common.core.domain.entity.SysUser;
 import com.zhglxt.common.core.text.Convert;
 import com.zhglxt.common.utils.ShiroUtils;
 import com.zhglxt.common.utils.StringUtils;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 数据过滤处理

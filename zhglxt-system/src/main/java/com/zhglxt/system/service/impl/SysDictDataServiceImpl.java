@@ -1,15 +1,15 @@
 package com.zhglxt.system.service.impl;
 
-import java.util.List;
-
-import com.zhglxt.common.utils.uuid.UUID;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.zhglxt.common.core.domain.entity.SysDictData;
 import com.zhglxt.common.core.text.Convert;
 import com.zhglxt.common.utils.DictUtils;
+import com.zhglxt.common.utils.uuid.UUID;
 import com.zhglxt.system.mapper.SysDictDataMapper;
 import com.zhglxt.system.service.ISysDictDataService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 字典 业务层处理

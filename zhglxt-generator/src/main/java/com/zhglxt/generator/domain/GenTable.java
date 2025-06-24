@@ -1,12 +1,13 @@
 package com.zhglxt.generator.domain;
 
-import java.util.List;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import org.apache.commons.lang3.ArrayUtils;
 import com.zhglxt.common.constant.GenConstants;
 import com.zhglxt.common.core.domain.BaseEntity;
 import com.zhglxt.common.utils.StringUtils;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import org.apache.commons.lang3.ArrayUtils;
+
+import java.util.List;
 
 /**
  * 业务表 gen_table

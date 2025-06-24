@@ -1,15 +1,16 @@
 package com.zhglxt.common.utils.security;
 
-import java.beans.BeanInfo;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
+import com.zhglxt.common.constant.PermissionConstants;
+import com.zhglxt.common.utils.MessageUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.zhglxt.common.constant.PermissionConstants;
-import com.zhglxt.common.utils.MessageUtils;
+
+import java.beans.BeanInfo;
+import java.beans.Introspector;
+import java.beans.PropertyDescriptor;
 
 /**
  * permission 工具类

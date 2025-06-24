@@ -1,7 +1,8 @@
 package com.zhglxt.generator.service;
 
-import java.util.List;
 import com.zhglxt.generator.domain.GenTableColumn;
+
+import java.util.List;
 
 /**
  * 业务字段 服务层

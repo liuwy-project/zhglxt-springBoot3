@@ -1,8 +1,9 @@
 package com.zhglxt.generator.service;
 
+import com.zhglxt.generator.domain.GenTable;
+
 import java.util.List;
 import java.util.Map;
-import com.zhglxt.generator.domain.GenTable;
 
 /**
  * 业务 服务层

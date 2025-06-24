@@ -1,8 +1,8 @@
 package com.zhglxt.framework.shiro.util;
 
+import com.zhglxt.framework.shiro.realm.UserRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.RealmSecurityManager;
-import com.zhglxt.framework.shiro.realm.UserRealm;
 
 /**
  * 用户授权信息

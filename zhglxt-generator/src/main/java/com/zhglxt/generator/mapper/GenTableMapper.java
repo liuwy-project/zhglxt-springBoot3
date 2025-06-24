@@ -1,7 +1,8 @@
 package com.zhglxt.generator.mapper;
 
-import java.util.List;
 import com.zhglxt.generator.domain.GenTable;
+
+import java.util.List;
 
 /**
  * 业务 数据层

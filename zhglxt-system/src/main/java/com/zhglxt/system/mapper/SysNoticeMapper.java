@@ -1,7 +1,8 @@
 package com.zhglxt.system.mapper;
 
-import java.util.List;
 import com.zhglxt.system.domain.SysNotice;
+
+import java.util.List;
 
 /**
  * 公告 数据层

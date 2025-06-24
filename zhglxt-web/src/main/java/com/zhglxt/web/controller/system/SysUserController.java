@@ -1,21 +1,5 @@
 package com.zhglxt.web.controller.system;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import com.zhglxt.common.utils.uuid.UUID;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import com.zhglxt.common.annotation.Log;
 import com.zhglxt.common.core.controller.BaseController;
 import com.zhglxt.common.core.domain.AjaxResult;
@@ -30,12 +14,24 @@ import com.zhglxt.common.utils.DateUtils;
 import com.zhglxt.common.utils.ShiroUtils;
 import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.common.utils.poi.ExcelUtil;
+import com.zhglxt.common.utils.uuid.UUID;
 import com.zhglxt.framework.shiro.service.SysPasswordService;
 import com.zhglxt.framework.shiro.util.AuthorizationUtils;
 import com.zhglxt.system.service.ISysDeptService;
 import com.zhglxt.system.service.ISysPostService;
 import com.zhglxt.system.service.ISysRoleService;
 import com.zhglxt.system.service.ISysUserService;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 用户信息

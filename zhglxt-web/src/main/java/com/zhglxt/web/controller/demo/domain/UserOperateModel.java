@@ -1,10 +1,11 @@
 package com.zhglxt.web.controller.demo.domain;
 
-import java.util.Date;
 import com.zhglxt.common.annotation.Excel;
 import com.zhglxt.common.annotation.Excel.Type;
 import com.zhglxt.common.core.domain.BaseEntity;
 import com.zhglxt.common.utils.DateUtils;
+
+import java.util.Date;
 
 public class UserOperateModel extends BaseEntity
 {

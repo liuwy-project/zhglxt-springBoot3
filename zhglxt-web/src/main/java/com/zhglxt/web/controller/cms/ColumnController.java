@@ -74,8 +74,7 @@ public class ColumnController extends BaseController {
     public List<Column> columnList(HttpServletRequest request) {
         Map<String, Object> paramMap = WebUtil.paramsToMap(request.getParameterMap());
         paramMap.put("siteId", siteService.selectOneSite().getId());
-        List<Column> columns = columnService.selectColumnList(paramMap);
-        return columns;
+        return columnService.selectColumnList(paramMap);
     }
 
     /**
@@ -98,8 +97,7 @@ public class ColumnController extends BaseController {
     public List<Column> columnTreeData(HttpServletRequest request) {
         Map<String, Object> paramMap = WebUtil.paramsToMap(request.getParameterMap());
         paramMap.put("siteId", siteService.selectOneSite().getId());
-        List<Column> columns = columnService.selectColumnList(paramMap);
-        return columns;
+        return columnService.selectColumnList(paramMap);
     }
 
     @RequestMapping("/add")

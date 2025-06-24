@@ -1,17 +1,5 @@
 package com.zhglxt.web.controller.system;
 
-import java.util.Date;
-import java.util.List;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import com.zhglxt.common.config.GlobalConfig;
 import com.zhglxt.common.constant.ShiroConstants;
 import com.zhglxt.common.core.controller.BaseController;
@@ -26,6 +14,19 @@ import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.framework.shiro.service.SysPasswordService;
 import com.zhglxt.system.service.ISysConfigService;
 import com.zhglxt.system.service.ISysMenuService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * 首页 业务处理

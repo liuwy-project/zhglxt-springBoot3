@@ -1,8 +1,9 @@
 package com.zhglxt.web.controller.demo.domain;
 
-import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
+import java.util.List;
 
 /**
  * 客户测试信息

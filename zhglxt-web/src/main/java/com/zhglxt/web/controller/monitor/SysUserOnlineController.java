@@ -1,14 +1,5 @@
 package com.zhglxt.web.controller.monitor;
 
-import java.util.List;
-import org.apache.shiro.authz.annotation.Logical;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import com.zhglxt.common.annotation.Log;
 import com.zhglxt.common.core.controller.BaseController;
 import com.zhglxt.common.core.domain.AjaxResult;
@@ -21,6 +12,16 @@ import com.zhglxt.framework.shiro.session.OnlineSession;
 import com.zhglxt.framework.shiro.session.OnlineSessionDAO;
 import com.zhglxt.system.domain.SysUserOnline;
 import com.zhglxt.system.service.ISysUserOnlineService;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * 在线用户监控

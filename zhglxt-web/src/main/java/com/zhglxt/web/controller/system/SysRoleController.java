@@ -1,16 +1,5 @@
 package com.zhglxt.web.controller.system;
 
-import java.util.List;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import com.zhglxt.common.annotation.Log;
 import com.zhglxt.common.core.controller.BaseController;
 import com.zhglxt.common.core.domain.AjaxResult;
@@ -25,6 +14,14 @@ import com.zhglxt.system.domain.SysUserRole;
 import com.zhglxt.system.service.ISysDeptService;
 import com.zhglxt.system.service.ISysRoleService;
 import com.zhglxt.system.service.ISysUserService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 角色信息

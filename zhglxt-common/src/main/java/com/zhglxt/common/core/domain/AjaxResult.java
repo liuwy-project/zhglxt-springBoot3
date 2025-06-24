@@ -1,8 +1,9 @@
 package com.zhglxt.common.core.domain;
 
+import com.zhglxt.common.utils.StringUtils;
+
 import java.util.HashMap;
 import java.util.Objects;
-import com.zhglxt.common.utils.StringUtils;
 
 /**
  * 操作消息提醒

@@ -1,10 +1,5 @@
 package com.zhglxt.quartz.util;
 
-import java.util.Date;
-import org.quartz.Job;
-import org.quartz.JobExecutionContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.zhglxt.common.constant.Constants;
 import com.zhglxt.common.constant.ScheduleConstants;
 import com.zhglxt.common.utils.ExceptionUtil;
@@ -14,6 +9,12 @@ import com.zhglxt.common.utils.spring.SpringUtils;
 import com.zhglxt.quartz.domain.SysJob;
 import com.zhglxt.quartz.domain.SysJobLog;
 import com.zhglxt.quartz.service.ISysJobLogService;
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Date;
 
 /**
  * 抽象quartz调用

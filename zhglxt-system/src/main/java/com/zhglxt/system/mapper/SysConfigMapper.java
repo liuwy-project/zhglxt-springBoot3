@@ -1,7 +1,8 @@
 package com.zhglxt.system.mapper;
 
-import java.util.List;
 import com.zhglxt.system.domain.SysConfig;
+
+import java.util.List;
 
 /**
  * 参数配置 数据层

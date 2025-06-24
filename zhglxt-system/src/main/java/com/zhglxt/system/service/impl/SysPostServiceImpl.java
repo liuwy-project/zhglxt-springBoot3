@@ -1,8 +1,5 @@
 package com.zhglxt.system.service.impl;
 
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.zhglxt.common.constant.UserConstants;
 import com.zhglxt.common.core.text.Convert;
 import com.zhglxt.common.exception.ServiceException;
@@ -11,6 +8,10 @@ import com.zhglxt.system.domain.SysPost;
 import com.zhglxt.system.mapper.SysPostMapper;
 import com.zhglxt.system.mapper.SysUserPostMapper;
 import com.zhglxt.system.service.ISysPostService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 岗位信息 服务层处理

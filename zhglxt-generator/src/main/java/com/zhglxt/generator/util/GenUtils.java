@@ -1,12 +1,13 @@
 package com.zhglxt.generator.util;
 
-import java.util.Arrays;
-import org.apache.commons.lang3.RegExUtils;
 import com.zhglxt.common.constant.GenConstants;
 import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.generator.config.GenConfig;
 import com.zhglxt.generator.domain.GenTable;
 import com.zhglxt.generator.domain.GenTableColumn;
+import org.apache.commons.lang3.RegExUtils;
+
+import java.util.Arrays;
 
 /**
  * 代码生成器 工具类

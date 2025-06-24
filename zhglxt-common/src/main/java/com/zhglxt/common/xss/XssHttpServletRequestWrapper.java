@@ -1,8 +1,8 @@
 package com.zhglxt.common.xss;
 
+import com.zhglxt.common.utils.html.EscapeUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
-import com.zhglxt.common.utils.html.EscapeUtil;
 
 /**
  * XSS过滤处理

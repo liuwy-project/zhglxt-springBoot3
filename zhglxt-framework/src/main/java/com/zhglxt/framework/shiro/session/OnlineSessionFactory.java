@@ -1,13 +1,13 @@
 package com.zhglxt.framework.shiro.session;
 
+import com.zhglxt.common.utils.IpUtils;
+import eu.bitwalker.useragentutils.UserAgent;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.SessionContext;
 import org.apache.shiro.session.mgt.SessionFactory;
 import org.apache.shiro.web.session.mgt.WebSessionContext;
 import org.springframework.stereotype.Component;
-import com.zhglxt.common.utils.IpUtils;
-import eu.bitwalker.useragentutils.UserAgent;
 
 /**
  * 自定义sessionFactory会话

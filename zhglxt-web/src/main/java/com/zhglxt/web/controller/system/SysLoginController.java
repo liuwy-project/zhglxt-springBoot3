@@ -1,6 +1,12 @@
 package com.zhglxt.web.controller.system;
 
 import com.zhglxt.common.config.GlobalConfig;
+import com.zhglxt.common.core.controller.BaseController;
+import com.zhglxt.common.core.domain.AjaxResult;
+import com.zhglxt.common.core.text.Convert;
+import com.zhglxt.common.utils.ServletUtils;
+import com.zhglxt.common.utils.StringUtils;
+import com.zhglxt.framework.web.service.ConfigService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.shiro.SecurityUtils;
@@ -14,12 +20,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.zhglxt.common.core.controller.BaseController;
-import com.zhglxt.common.core.domain.AjaxResult;
-import com.zhglxt.common.core.text.Convert;
-import com.zhglxt.common.utils.ServletUtils;
-import com.zhglxt.common.utils.StringUtils;
-import com.zhglxt.framework.web.service.ConfigService;
 
 /**
  * 登录验证

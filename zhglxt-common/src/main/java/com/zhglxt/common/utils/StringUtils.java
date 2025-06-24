@@ -1,14 +1,10 @@
 package com.zhglxt.common.utils;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import org.springframework.util.AntPathMatcher;
 import com.zhglxt.common.constant.Constants;
 import com.zhglxt.common.core.text.StrFormatter;
+import org.springframework.util.AntPathMatcher;
+
+import java.util.*;
 
 /**
  * 字符串工具类
