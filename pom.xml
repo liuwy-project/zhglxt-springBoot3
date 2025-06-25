@@ -31,7 +31,9 @@
         <velocity.version>2.3</velocity.version>
         <springdoc.version>2.6.0</springdoc.version>
 
+        <springboot.version>3.3.5</springboot.version>
         <tomcat.version>10.1.41</tomcat.version>
+        <logback.version>1.5.13</logback.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -42,14 +44,11 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.3.5</version>
+                <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--
-                Tomcat由多个组件组成，建议同时覆盖以下依赖以确保一致性
-                更新内置版本-移除 易受攻击依赖 提示
-            -->
+            <!-- 覆盖tomcat的依赖配置 -->
             <dependency>
                 <groupId>org.apache.tomcat.embed</groupId>
                 <artifactId>tomcat-embed-core</artifactId>
@@ -65,14 +64,22 @@
                 <artifactId>tomcat-embed-websocket</artifactId>
                 <version>${tomcat.version}</version>
             </dependency>
-            <!--
-                protobuf-java 是一种高效的序列化框架，用于结构化数据的编解码
-                更新内置版本-移除 易受攻击依赖 提示
-             -->
+            <!-- 覆盖protobuf-java的依赖配置 -->
             <dependency>
                 <groupId>com.google.protobuf</groupId>
                 <artifactId>protobuf-java</artifactId>
                 <version>4.28.2</version>
+            </dependency>
+            <!-- 覆盖logback的依赖配置-->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
             </dependency>
 
             <!-- 阿里数据库连接池 -->
