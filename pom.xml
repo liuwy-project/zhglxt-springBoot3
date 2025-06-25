@@ -31,7 +31,7 @@
         <velocity.version>2.3</velocity.version>
         <springdoc.version>2.6.0</springdoc.version>
 
-        <springboot.version>3.3.5</springboot.version>
+        <spring-boot.version>3.3.5</spring-boot.version>
         <tomcat.version>10.1.41</tomcat.version>
         <logback.version>1.5.13</logback.version>
     </properties>
@@ -44,7 +44,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${springboot.version}</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
