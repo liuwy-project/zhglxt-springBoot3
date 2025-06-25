@@ -11,7 +11,7 @@ zhglxt:
   # 文件路径 示例（ Windows配置 D:/zhglxt_userfiles，Linux配置 /home/zhglxt_userfiles）
   profile: D:/zhglxt_userfiles
   # 获取ip地址开关
-  addressEnabled: false
+  addressEnabled: true
 
 # 开发环境配置
 server:
