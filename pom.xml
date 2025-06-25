@@ -30,6 +30,8 @@
         <poi.version>5.4.0</poi.version>
         <velocity.version>2.3</velocity.version>
         <springdoc.version>2.6.0</springdoc.version>
+
+        <tomcat.version>10.1.41</tomcat.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -43,6 +45,34 @@
                 <version>3.3.5</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!--
+                Tomcat由多个组件组成，建议同时覆盖以下依赖以确保一致性
+                更新内置版本-移除 易受攻击依赖 提示
+            -->
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>${tomcat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-el</artifactId>
+                <version>${tomcat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-websocket</artifactId>
+                <version>${tomcat.version}</version>
+            </dependency>
+            <!--
+                protobuf-java 是一种高效的序列化框架，用于结构化数据的编解码
+                更新内置版本-移除 易受攻击依赖 提示
+             -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>4.28.2</version>
             </dependency>
 
             <!-- 阿里数据库连接池 -->
