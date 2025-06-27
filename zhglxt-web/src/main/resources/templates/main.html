@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--360浏览器优先以webkit内核解析-->
     <title>系统介绍</title>
-    <link rel="shortcut icon" href="favicon.png">
+    <link rel="shortcut icon" th:href="@{/favicon.png}">
     <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
     <link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
     <link href="../static/css/style.min.css" th:href="@{/css/style.min.css}" rel="stylesheet"/>
@@ -145,16 +145,103 @@
 								</div>
 								<div id="SpringBoot" class="panel-collapse collapse">
 									<div class="panel-body">
-										Spring Boot：是一款开箱即用框架，提供各种默认配置来简化项目配置。让我们的Spring应用变的更轻量化、更快的入门。
-										在主程序执行main函数就可以运行。你也可以打包你的应用为jar并通过使用java -jar来运行你的Web应用。它遵循"约定优先于配置"的原则，
-										使用SpringBoot只需很少的配置，大部分的时候直接使用默认的配置即可。可以与Spring Cloud的微服务无缝结合。
-										<br>Spring Boot2.0 环境要求必须是jdk8或以上版本，Tomcat8或以上版本。
-										<br><br>优点：
+										Spring Boot 是一个基于 Spring Framework 的开源 Java 开发框架，由 Pivotal 团队（现属 VMware）开发并维护。
+										它旨在简化 Spring 应用的初始搭建和开发流程，通过 约定优于配置（Convention Over Configuration） 的原则，
+										减少开发者的配置工作，使开发者能够快速构建独立运行、生产级的 Spring 应用程序。
+										<br><br>Spring Boot 的核心目标是：
 										<lo>
-											<li>使编码变得简单： 推荐使用注解。</li>
-											<li>使配置变得简单： 自动配置、快速构建项目、快速集成新技术能力 没有冗余代码生成和XML配置的要求</li>
-											<li>使部署变得简单： 内嵌Tomcat、Jetty、Undertow等web容器，无需以war包形式部署</li>
-											<li>使监控变得简单： 自带项目监控</li>
+											<li>简化 Spring 应用的初始化</li>
+											<li>提供默认配置，减少 XML 配置</li>
+											<li>内嵌服务器（如 Tomcat、Jetty），无需部署 WAR 包</li>
+											<li>提供生产就绪（Production-Ready）特性，如监控、健康检查</li>
+										</lo>
+										<br>Spring Boot 的核心特点：
+										<lo>
+											<li>自动配置（Auto-Configuration）：Spring Boot 根据项目依赖（如数据库、Web、安全等）自动配置 Spring 应用，开发者无需手动编写大量 XML 或 Java 配置。</li>
+											<li>起步依赖（Starter Dependencies）：提供预定义的依赖组合（如 spring-boot-starter-web、spring-boot-starter-data-jpa），简化 Maven/Gradle 依赖管理。</li>
+											<li>内嵌服务器（Embedded Server）：默认集成 Tomcat、Jetty 或 Undertow，应用可直接打包为 可执行 JAR，无需额外部署到外部服务器。</li>
+											<li>命令行界面（CLI）：支持 Groovy 脚本快速开发，适用于原型设计。</li>
+											<li>Actuator（生产监控）：提供 /health、/metrics、/info 等 HTTP 端点，方便监控和管理应用。</li>
+											<li>外部化配置：支持 application.properties 或 application.yml 文件，并可结合环境变量、命令行参数动态调整配置。</li>
+										</lo>
+										<br><br>Spring Boot 2.x 和 3.x 在环境要求上的主要区别：
+										<br>Java 版本要求:
+										<br>
+										<table style="width: 410px">
+											<tr>
+												<th>要求</th>
+												<th>Spring Boot 2.x</th>
+												<th>Spring Boot 3.x</th>
+											</tr>
+											<tr>
+												<td>最低版本</td>
+												<td>Java 8</td>
+												<td>Java 17</td>
+											</tr>
+											<tr>
+												<td>推荐版本</td>
+												<td>Java 8/11 (LTS)</td>
+												<td>Java 17/21 (LTS)</td>
+											</tr>
+											<tr>
+												<td>最高支持</td>
+												<td>Java 17</td>
+												<td>Java 21+</td>
+											</tr>
+										</table>
+										<br>构建工具要求:
+										<br>
+										<table style="width: 410px">
+											<tr>
+												<th>工具</th>
+												<th>Spring Boot 2.x</th>
+												<th>Spring Boot 3.x</th>
+											</tr>
+											<tr>
+												<td>Maven</td>
+												<td>3.3+</td>
+												<td>3.5+</td>
+											</tr>
+											<tr>
+												<td>Gradle</td>
+												<td>4.4+</td>
+												<td>7.x+ (推荐7.5+)</td>
+											</tr>
+										</table>
+										<br>Servlet 容器支持:
+										<br>
+										<table style="width: 410px">
+											<tr>
+												<th>容器</th>
+												<th>Spring Boot 2.x</th>
+												<th>Spring Boot 3.x</th>
+											</tr>
+											<tr>
+												<td>Tomcat</td>
+												<td>9.x</td>
+												<td>10.x+ (Jakarta EE 9+)</td>
+											</tr>
+											<tr>
+												<td>Jetty</td>
+												<td>9.4.x</td>
+												<td>11.x+</td>
+											</tr>
+											<tr>
+												<td>Undertow</td>
+												<td>2.x</td>
+												<td>2.x+</td>
+											</tr>
+										</table>
+										<br>其它重要区别
+										<br>Jakarta EE 迁移：
+										<lo>
+											<li>Spring Boot 2.x 使用 Java EE/Jakarta EE 8 (javax.*)</li>
+											<li>Spring Boot 3.x 使用 Jakarta EE 9+ (包名从 javax.* 改为 jakarta.*)</li>
+										</lo>
+										<br>Spring Framework 基础：
+										<lo>
+											<li>Spring Boot 2.x 基于 Spring Framework 5.x</li>
+											<li>Spring Boot 3.x 基于 Spring Framework 6.x</li>
 										</lo>
 									</div>
 								</div>
