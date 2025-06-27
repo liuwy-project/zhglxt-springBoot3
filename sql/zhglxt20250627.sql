@@ -11,7 +11,7 @@
  Target Server Version : 80041 (8.0.41)
  File Encoding         : 65001
 
- Date: 12/06/2025 21:01:24
+ Date: 27/06/2025 11:29:12
 */
 
 SET NAMES utf8mb4;
@@ -37,7 +37,7 @@ CREATE TABLE `cms_advertising`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '轮询广告表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cms_advertising
@@ -245,7 +245,7 @@ CREATE TABLE `gen_table`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`table_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '代码生成业务表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '代码生成业务表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gen_table
@@ -433,7 +433,7 @@ CREATE TABLE `qrtz_scheduler_state`  (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('ZhglxtScheduler', 'DESKTOP-9SVD4KU1749557272919', 1749557394857, 15000);
+INSERT INTO `qrtz_scheduler_state` VALUES ('ZhglxtScheduler', 'DESKTOP-9SVD4KU1750994781078', 1750994853219, 15000);
 
 -- ----------------------------
 -- Table structure for qrtz_simple_triggers
@@ -510,9 +510,9 @@ CREATE TABLE `qrtz_triggers`  (
 -- ----------------------------
 -- Records of qrtz_triggers
 -- ----------------------------
-INSERT INTO `qrtz_triggers` VALUES ('ZhglxtScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', NULL, 1749557280000, -1, 5, 'PAUSED', 'CRON', 1749557273000, 0, NULL, 2, '');
-INSERT INTO `qrtz_triggers` VALUES ('ZhglxtScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', NULL, 1749557280000, -1, 5, 'PAUSED', 'CRON', 1749557273000, 0, NULL, 2, '');
-INSERT INTO `qrtz_triggers` VALUES ('ZhglxtScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', NULL, 1749557280000, -1, 5, 'PAUSED', 'CRON', 1749557273000, 0, NULL, 2, '');
+INSERT INTO `qrtz_triggers` VALUES ('ZhglxtScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', NULL, 1750994790000, -1, 5, 'PAUSED', 'CRON', 1750994781000, 0, NULL, 2, '');
+INSERT INTO `qrtz_triggers` VALUES ('ZhglxtScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', NULL, 1750994790000, -1, 5, 'PAUSED', 'CRON', 1750994781000, 0, NULL, 2, '');
+INSERT INTO `qrtz_triggers` VALUES ('ZhglxtScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', NULL, 1750994800000, -1, 5, 'PAUSED', 'CRON', 1750994781000, 0, NULL, 2, '');
 
 -- ----------------------------
 -- Table structure for sys_config
@@ -603,7 +603,7 @@ CREATE TABLE `sys_dict_data`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 102 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '字典数据表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '字典数据表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_dict_data
@@ -718,7 +718,7 @@ CREATE TABLE `sys_job_log`  (
   `exception_info` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '异常信息',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`job_log_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_job_log
@@ -741,7 +741,7 @@ CREATE TABLE `sys_logininfor`  (
   PRIMARY KEY (`info_id`) USING BTREE,
   INDEX `idx_sys_logininfor_s`(`status` ASC) USING BTREE,
   INDEX `idx_sys_logininfor_lt`(`login_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -769,7 +769,7 @@ CREATE TABLE `sys_menu`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1080 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '菜单权限表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1084 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '菜单权限表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_menu
@@ -928,7 +928,7 @@ CREATE TABLE `sys_oper_log`  (
   INDEX `idx_sys_oper_log_bt`(`business_type` ASC) USING BTREE,
   INDEX `idx_sys_oper_log_s`(`status` ASC) USING BTREE,
   INDEX `idx_sys_oper_log_ot`(`oper_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -950,7 +950,7 @@ CREATE TABLE `sys_post`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`post_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '岗位信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '岗位信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_post
@@ -960,6 +960,7 @@ INSERT INTO `sys_post` VALUES (2, 'se', '项目经理', 2, '0', 'admin', '2025-0
 INSERT INTO `sys_post` VALUES (3, 'hr', '人力资源', 3, '0', 'admin', '2025-06-09 19:10:05', '', NULL, '');
 INSERT INTO `sys_post` VALUES (4, 'user', '普通员工', 4, '0', 'admin', '2025-06-09 19:10:05', '', NULL, '');
 INSERT INTO `sys_post` VALUES (5, 'manager', '管理员', 5, '0', 'system', '2025-06-10 14:24:10', '', NULL, '管理员');
+INSERT INTO `sys_post` VALUES (6, 'sys', '超级系统管理员', 6, '0', 'system', '2025-06-27 11:16:44', '', NULL, '超级系统管理员');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -1048,8 +1049,8 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', '100', 'system', '超级系统管理员', '00', 'xx@qq.com', '18888888888', '0', '', 'a430a9104181df477d077f1673208fb1', '111111', '0', '0', '127.0.0.1', '2025-06-12 21:00:04', '2025-06-10 17:43:21', 'system', '2025-06-09 19:10:05', 'system', '2025-06-12 21:00:04', '超级系统管理员');
-INSERT INTO `sys_user` VALUES ('2', '103', 'admin', '系统管理员', '00', 'xx@qq.com', '16666666666', '1', '', '1db1777279b953fac786e0c13325913b', '222222', '0', '0', '127.0.0.1', '2025-06-10 17:15:37', NULL, 'system', '2025-06-09 19:10:05', 'system', '2025-06-10 17:15:37', '系统管理员');
+INSERT INTO `sys_user` VALUES ('1', '100', 'system', '超级系统管理员', '00', 'xx@qq.com', '18888888888', '0', '', 'a430a9104181df477d077f1673208fb1', '111111', '0', '0', '127.0.0.1', '2025-06-27 11:26:59', '2025-06-10 17:43:21', 'system', '2025-06-09 19:10:05', 'system', '2025-06-27 11:26:58', '超级系统管理员');
+INSERT INTO `sys_user` VALUES ('2', '103', 'admin', '管理员', '00', 'xx@qq.com', '16666666666', '1', '', '1db1777279b953fac786e0c13325913b', '222222', '0', '0', '192.168.1.5', '2025-06-22 19:53:01', NULL, 'system', '2025-06-09 19:10:05', 'system', '2025-06-27 11:25:09', '管理员');
 
 -- ----------------------------
 -- Table structure for sys_user_online
@@ -1087,8 +1088,8 @@ CREATE TABLE `sys_user_post`  (
 -- ----------------------------
 -- Records of sys_user_post
 -- ----------------------------
-INSERT INTO `sys_user_post` VALUES ('1', 5);
-INSERT INTO `sys_user_post` VALUES ('2', 2);
+INSERT INTO `sys_user_post` VALUES ('1', 6);
+INSERT INTO `sys_user_post` VALUES ('2', 5);
 
 -- ----------------------------
 -- Table structure for sys_user_role
