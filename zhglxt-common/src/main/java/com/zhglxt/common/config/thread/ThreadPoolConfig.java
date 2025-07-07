@@ -2,13 +2,13 @@ package com.zhglxt.common.config.thread;
 
 import com.zhglxt.common.utils.Threads;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 
 /**
  * 线程池配置
@@ -18,6 +18,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Configuration
 public class ThreadPoolConfig
 {
+    public static final Logger log = LoggerFactory.getLogger(ThreadPoolConfig.class);
+
     // 核心线程池大小
     private int corePoolSize = 50;
 
@@ -57,7 +59,27 @@ public class ThreadPoolConfig
             protected void afterExecute(Runnable r, Throwable t)
             {
                 super.afterExecute(r, t);
-                Threads.printException(r, t);
+                // 处理显式传递的异常
+                if (t != null) {
+                    Threads.printException(r, t);
+                    return;
+                }
+
+                // 处理FutureTask内部异常
+                if (r instanceof Future<?> future) {
+                    try {
+                        // 仅在任务完成且未取消时获取结果
+                        if (future.isDone() && !future.isCancelled()) {
+                            future.get();
+                        }
+                    } catch (CancellationException ce) {
+                        log.debug("任务已取消，不处理结果: {}", ce.getMessage());
+                    } catch (ExecutionException ee) {
+                        Threads.printException(r, ee.getCause());
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
             }
         };
     }
