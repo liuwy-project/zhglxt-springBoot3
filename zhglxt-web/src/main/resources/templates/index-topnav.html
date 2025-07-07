@@ -464,8 +464,44 @@ $(function() {
 	
 	$("[data-toggle='tooltip']").tooltip();
 	
-	
+	<!-- /* 进入系统自动跳转当前用户所拥有的第一菜单 */ -->
+	openFirstMenu()
 });
+
+<!-- /* 进入系统自动跳转当前用户所拥有的第一菜单 */ -->
+function openFirstMenu() {
+	var menus= [[${menus}]];
+	var firstUrl = getFirstMenuItemUrl(menus);
+	
+	if (firstUrl) {
+		applyPath(firstUrl);
+	} else {
+		$.modal.alert("未找到有效的菜单项！请联系管理员添加");
+	}
+}
+
+/**
+ * 根据菜单结构自动获取第一个菜单项的URL
+ * 支持任意层级的菜单结构
+ */
+function getFirstMenuItemUrl(menus) {
+	if (!menus || menus.length === 0) {
+		console.error("菜单数据为空");
+		return null;
+	}
+	
+	let currentLevel = menus;
+	let firstItem = currentLevel[0];
+	
+	// 逐级向下查找，直到找到没有children属性的菜单项或children为空
+	while (firstItem && firstItem.children && firstItem.children.length > 0) {
+		currentLevel = firstItem.children;
+		firstItem = currentLevel[0];
+	}
+	
+	// 返回最终找到的菜单项的URL
+	return firstItem && firstItem.url ? firstItem.url : null;
+}
 </script>
 </body>
 </html>
