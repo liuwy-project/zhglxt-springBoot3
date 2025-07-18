@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('按钮')" />
+	<th:block th:insert="~{include :: header('按钮')}" />
 </head>
 <body class="gray-bg">
      <div class="row wrapper wrapper-content animated fadeInRight">
@@ -615,6 +615,6 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:insert="~{include :: footer}" />
 </body>
 </html>

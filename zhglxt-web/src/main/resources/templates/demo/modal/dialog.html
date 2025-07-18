@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('模态窗口')" />
+	<th:block th:insert="~{include :: header('模态窗口')}" />
 </head>
 <body class="gray-bg">
 <div class="wrapper wrapper-content fadeInRight">
@@ -210,6 +210,6 @@
         </div>
     </div>
 </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:insert="~{include :: footer}" />
 </body>
 </html>

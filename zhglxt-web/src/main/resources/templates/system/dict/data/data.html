@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-	<th:block th:include="include :: header('字典数据列表')" />
-	<th:block th:include="include :: select2-css" />
+	<th:block th:insert="~{include :: header('字典数据列表')}" />
+	<th:block th:insert="~{include :: select2-css}" />
 </head>
 <body class="gray-bg">
 	<div class="container-div">
@@ -57,8 +57,8 @@
 			</div>
 		</div>
 	</div>
-	<th:block th:include="include :: footer" />
-	<th:block th:include="include :: select2-js" />
+	<th:block th:insert="~{include :: footer}" />
+	<th:block th:insert="~{include :: select2-js}" />
 	<script th:inline="javascript">
 		var editFlag = [[${@permission.hasPermi('system:dict:edit')}]];
 		var removeFlag = [[${@permission.hasPermi('system:dict:remove')}]];

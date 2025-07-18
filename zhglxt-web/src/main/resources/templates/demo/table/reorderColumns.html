@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:include="include :: header('表格列拖拽操作')" />
+	<th:block th:insert="~{include :: header('表格列拖拽操作')}" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -18,9 +18,9 @@
 			</div>
 		</div>
 	</div>
-    <div th:include="include :: footer"></div>
+    <div th:insert="~{include :: footer}"></div>
     <script th:src="@{/js/jquery-ui-1.10.4.min.js}"></script>
-    <th:block th:include="include :: bootstrap-table-reorder-columns-js" />
+    <th:block th:insert="~{include :: bootstrap-table-reorder-columns-js}" />
     <script th:inline="javascript">
         var prefix = ctx + "demo/table";
         var datas = [[${@dict.getType('sys_normal_disable')}]];

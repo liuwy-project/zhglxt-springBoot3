@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <th:block th:include="include :: header('新增${functionName}')" />
+    <th:block th:insert="~{include :: header('新增${functionName}')}" />
 #foreach($column in $columns)
 #if($column.insert && !$column.superColumn && !$column.pk && $column.htmlType == "datetime")
-    <th:block th:include="include :: datetimepicker-css" />
+    <th:block th:insert="~{include :: datetimepicker-css}" />
 #break
 #end
 #end
 #foreach($column in $columns)
 #if($column.insert && !$column.superColumn && !$column.pk && $column.htmlType == "upload")
-    <th:block th:include="include :: bootstrap-fileinput-css"/>
+    <th:block th:insert="~{include :: bootstrap-fileinput-css}"/>
 #break
 #end
 #end
 #foreach($column in $columns)
 #if($column.insert && !$column.superColumn && !$column.pk && $column.htmlType == "summernote")
-    <th:block th:include="include :: summernote-css" />
+    <th:block th:insert="~{include :: summernote-css}" />
 #break
 #end
 #end
@@ -194,22 +194,22 @@
 #end
         </form>
     </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:insert="~{include :: footer}" />
 #foreach($column in $columns)
 #if($column.insert && !$column.superColumn && !$column.pk && $column.htmlType == "datetime")
-    <th:block th:include="include :: datetimepicker-js" />
+    <th:block th:insert="~{include :: datetimepicker-js}" />
 #break
 #end
 #end
 #foreach($column in $columns)
 #if($column.insert && !$column.superColumn && !$column.pk && $column.htmlType == "upload")
-    <th:block th:include="include :: bootstrap-fileinput-js"/>
+    <th:block th:insert="~{include :: bootstrap-fileinput-js}"/>
 #break
 #end
 #end
 #foreach($column in $columns)
 #if($column.insert && !$column.superColumn && !$column.pk && $column.htmlType == "summernote")
-    <th:block th:include="include :: summernote-js" />
+    <th:block th:insert="~{include :: summernote-js}" />
 #break
 #end
 #end

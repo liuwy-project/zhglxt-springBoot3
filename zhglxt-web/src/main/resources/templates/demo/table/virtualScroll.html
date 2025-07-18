@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:include="include :: header('表格虚拟滚动')" />
+	<th:block th:insert="~{include :: header('表格虚拟滚动')}" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 	</div>
-    <div th:include="include :: footer"></div>
+    <div th:insert="~{include :: footer}"></div>
     <script>
         var total = 0
 

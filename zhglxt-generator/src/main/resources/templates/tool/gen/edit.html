@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('修改生成信息')" />
-	<th:block th:include="include :: select2-css" />
+	<th:block th:insert="~{include :: header('修改生成信息')}" />
+	<th:block th:insert="~{include :: select2-css}" />
 	<style type="text/css">
 	    .select-table table{table-layout:fixed;}.table>thead>tr>th{text-align:center;}.select-table .table td{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}.form-control{padding:3px 6px 4px;height:30px;}.icheckbox-blue{top:0px;left:6px;}.form-control.select2-hidden-accessible{position:static!important;}.select-table table label.error{position: inherit;}select + label.error{z-index:1;right:40px;}
 	</style>
@@ -267,11 +267,11 @@
         </div>
     </div>
 	</section>
-    <th:block th:include="include :: footer" />
-    <th:block th:include="include :: select2-js" />
-    <th:block th:include="include :: bootstrap-table-reorder-rows-js" />
+    <th:block th:insert="~{include :: footer}" />
+    <th:block th:insert="~{include :: select2-js}" />
+    <th:block th:insert="~{include :: bootstrap-table-reorder-rows-js}" />
     <script th:src="@{/js/jquery.tmpl.js}"></script>
-    <th:block th:include="include :: jquery-cxselect-js" />
+    <th:block th:insert="~{include :: jquery-cxselect-js}" />
     <script th:inline="javascript">
 	    /* 用户信息-修改 */
 	    $("#form-table-edit").validate({

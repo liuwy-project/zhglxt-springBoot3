@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('缓存监控')" />
+	<th:block th:insert="~{include :: header('缓存监控')}" />
 </head>
 <body class="gray-bg">
     <div class="wrapper wrapper-content">
@@ -97,7 +97,7 @@
         </div>
     </div>
 </body>
-<th:block th:include="include :: footer" />
+<th:block th:insert="~{include :: footer}" />
 <script th:inline="javascript">
 var prefix = ctx + "monitor/cache";
 

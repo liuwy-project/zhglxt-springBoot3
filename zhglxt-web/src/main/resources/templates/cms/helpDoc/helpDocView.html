@@ -2,8 +2,8 @@
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${helpDoc.name}"></title>
-    <th:block th:include="include :: header('查看文档')"/>
-    <th:block th:include="include :: editorMd-preview-css"/>
+    <th:block th:insert="~{include :: header('查看文档')}"/>
+    <th:block th:insert="~{include :: editorMd-preview-css}"/>
 </head>
 <body>
 <div class="container">
@@ -16,8 +16,8 @@
         </div>
     </div>
 </div>
-<th:block th:include="include :: footer"/>
-<div th:include="include :: editorMd-preview-js"></div>
+<th:block th:insert="~{include :: footer}"/>
+<div th:insert="~{include :: editorMd-preview-js}"></div>
 <script type="text/javascript">
     var testEditor;
 

@@ -21,7 +21,7 @@
 					<div class="section" style="text-align: left; margin: 0 auto; padding: 15px; border-left: 3px solid #4285F4; border-radius: 4px; background-color: #f9f9f9; height: 100%;">
 						<h3>技术栈架构</h3>
 						<ul class="tech-stack" style="padding-left: 20px;">
-							<li>采用<strong>SpringBoot3.3+、MySQL8.0+、JDK21+、Tomcat10+</strong>等前沿技术栈构建</li>
+							<li>采用<strong>SpringBoot3.5+、MySQL8.0+、JDK21+、Tomcat11+</strong>等最新稳定版前沿技术栈构建</li>
 							<li>深度整合<strong>Mybatis持久层框架、Apache Shiro安全框架、Bootstrap响应式组件库及Thymeleaf模板引擎</strong></li>
 							<li>形成标准化企业级开发解决方案</li>
 						</ul>
@@ -68,12 +68,13 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h5 class="panel-title">
-										<a data-toggle="collapse" data-parent="#version" href="#latest_version">latest version</a><code class="pull-right">2025.05.20-2025.07.07</code>
+										<a data-toggle="collapse" data-parent="#version" href="#latest_version">latest version</a><code class="pull-right">2025.05.20-2025.07.18</code>
 									</h5>
 								</div>
 								<div id="latest_version" class="panel-collapse collapse in">
 									<div class="panel-body">
 										<ol>
+											<li>springBoot版本升级到最新稳定版3.5.0</li>
 											<li>进入系统后，自动跳转当前用户所拥有的第一菜单</li>
 											<li>优化定时任务包名白名单匹配方式</li>
 											<li>优化Excel统计行数值的单元格样式显示</li>
@@ -1649,14 +1650,21 @@
 								</div>
 								<div id="Thymeleaf" class="panel-collapse collapse">
 									<div class="panel-body">
-										Thymeleaf是一个用于Web和独立Java环境的模板引擎，能够处理HTML、XML、JavaScript、CSS甚至纯文本。能轻易的与Spring
-										MVC等
-										Web框架进行集成作为Web应用的模板引擎。
-										与其它模板引擎（比如FreeMaker）相比，Thymeleaf最大的特点是能够直接在浏览器中打开并正确显示模板页面，
-										而不需要启动整个Web应用（更加方便前后端分离，比如方便类似VUE前端设计页面），抛弃JSP吧。Thymeleaf 3.0是一个完全彻底重构的模板引擎，
-										极大的减少内存占用和提升性能和并发性，避免v2.1版因大量的输出标记的集合产生的资源占用。Thymeleaf 3.0放弃了大多数面向DOM的处理机制，
-										变成了一个基于事件的模板处理器，它通过处理模板标记或文本并立即生成其输出，甚至在新事件之前响应模板解析器/缓存事件。
-										Thymeleaf是Spring Boot官方推荐使用的模板。
+										Thymeleaf是一个用于Web和独立Java环境的模板引擎，能够处理HTML、XML、JavaScript、CSS甚至纯文本。能轻易的与Spring MVC等 Web框架进行集成作为Web应用的模板引擎。
+										<br><br>与其它模板引擎（比如FreeMaker）相比，Thymeleaf最大的特点是能够直接在浏览器中打开并正确显示模板页面，而不需要启动整个Web应用（更加方便前后端分离，比如方便类似VUE前端设计页面），抛弃JSP吧。
+										<br><br>Thymeleaf 3.0是一个完全彻底重构的模板引擎，极大的减少内存占用和提升性能和并发性，避免v2.1版因大量的输出标记的集合产生的资源占用。
+										<br><br>Thymeleaf 3.0放弃了大多数面向DOM的处理机制，变成了一个基于事件的模板处理器，它通过处理模板标记或文本并立即生成其输出，甚至在新事件之前响应模板解析器/缓存事件。
+										<br><br>Thymeleaf是Spring Boot官方推荐使用的模板。
+										<br><br>
+										Thymeleaf 3.0 之后，th:include 已被弃用，推荐使用 th:insert 替代
+										<br><br>替换建议（idea）
+										<br><br>全局替换 th:include 为 th:insert：
+										<br>		查找：th:insert="
+										<br>		替换：th:insert="
+										<br><br>
+										<br>	添加片段表达式包装 ~{...}：（使用正则表达式查找）
+										<br>		查找：="~{([^~].*?)::(.*?)}"
+										<br>		替换：="~{$1::$2}"
 										<br><br>优点：
 										<lo>
 											<li>国际化支持非常简单</li>
@@ -1964,7 +1972,7 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h5 class="panel-title">
-										<a data-toggle="collapse" data-parent="#developerKits" href="#JDK-Tomcat">系统运行部署环境：JDK 21 、MySQL 8.0.41、Tomcat 10.1.41</a>
+										<a data-toggle="collapse" data-parent="#developerKits" href="#JDK-Tomcat">系统运行部署环境：JDK 21 、MySQL 8.0.41、Tomcat 11.0.9</a>
 										<code class="pull-right">..</code>
 									</h5>
 								</div>

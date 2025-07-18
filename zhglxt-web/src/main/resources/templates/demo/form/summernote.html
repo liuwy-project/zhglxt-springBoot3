@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('Summernote富文本编辑器')" />
-	<th:block th:include="include :: summernote-css" />
+	<th:block th:insert="~{include :: header('Summernote富文本编辑器')}" />
+	<th:block th:insert="~{include :: summernote-css}" />
 </head>
 <body class="gray-bg">
     <div class="wrapper wrapper-content">
@@ -68,8 +68,8 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
-    <th:block th:include="include :: summernote-js" />
+    <th:block th:insert="~{include :: footer}" />
+    <th:block th:insert="~{include :: summernote-js}" />
     <script>
         $(document).ready(function () {
             $('.summernote').summernote({

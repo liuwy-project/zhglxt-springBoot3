@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <th:block th:include="include :: header('公告详细')" />
+    <th:block th:insert="~{include :: header('公告详细')}" />
 </head>
 <body>
     <div class="main-content">
@@ -22,6 +22,6 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:insert="~{include :: footer}" />
 </body>
 </html>

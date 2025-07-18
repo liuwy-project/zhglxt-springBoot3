@@ -36,33 +36,33 @@
 </head>
 <body>
 <!-- 导航栏 -->
-<header th:replace="cms/fragments/navbar :: navbar"></header>
+<header th:replace="~{cms/fragments/navbar :: navbar}"></header>
 
 <!-- 轮播图 -->
-<div th:replace="cms/fragments/carousel :: carousel"></div>
+<div th:replace="~{cms/fragments/carousel :: carousel}"></div>
 
 <!-- 主要内容区域 -->
 <div class="container marketing">
     <!-- 解决方案 -->
-    <div th:replace="cms/fragments/solution :: solutions"></div>
+    <div th:replace="~{cms/fragments/solution :: solutions}"></div>
     
     <!-- 新闻动态 -->
-    <div th:replace="cms/fragments/newss :: newss"></div>
+    <div th:replace="~{cms/fragments/newss :: newss}"></div>
     
     <!-- 联系我们 -->
-    <div th:replace="cms/fragments/contacts :: contacts"></div>
+    <div th:replace="~{cms/fragments/contacts :: contacts}"></div>
     
     <!-- 关于我们 -->
-    <div th:replace="cms/fragments/abouts :: abouts"></div>
+    <div th:replace="~{cms/fragments/abouts :: abouts}"></div>
     
     <!-- 发展历程 -->
-    <div th:replace="cms/fragments/developHistory :: developHistorys"></div>
+    <div th:replace="~{cms/fragments/developHistory :: developHistorys}"></div>
     
     <!-- 页脚 -->
-    <footer th:replace="cms/fragments/footer :: footer"></footer>
+    <footer th:replace="~{cms/fragments/footer :: footer}"></footer>
 </div>
 
 <!-- 页脚脚本 -->
-<div th:replace="cms/fragments/scripts :: scripts"></div>
+<div th:replace="~{cms/fragments/scripts :: scripts}"></div>
 </body>
 </html>

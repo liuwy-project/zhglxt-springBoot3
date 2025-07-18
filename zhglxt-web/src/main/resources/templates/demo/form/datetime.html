@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('日期和时间')" />
-	<th:block th:include="include :: datetimepicker-css" />
+	<th:block th:insert="~{include :: header('日期和时间')}" />
+	<th:block th:insert="~{include :: datetimepicker-css}" />
 </head>
 <body class="gray-bg">
       <div class="wrapper wrapper-content animated fadeInRight">
@@ -118,8 +118,8 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
-    <th:block th:include="include :: datetimepicker-js" />
+    <th:block th:insert="~{include :: footer}" />
+    <th:block th:insert="~{include :: datetimepicker-js}" />
     <script type="text/javascript">
         $(function(){
         	<!-- datetimepicker示例 -->

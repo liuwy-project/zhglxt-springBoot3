@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('功能扩展')" />
-	<th:block th:include="include :: jasny-bootstrap-css" />
+	<th:block th:insert="~{include :: header('功能扩展')}" />
+	<th:block th:insert="~{include :: jasny-bootstrap-css}" />
 </head>
 <body class="gray-bg">
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -112,7 +112,7 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
-    <th:block th:include="include :: jasny-bootstrap-js" />
+    <th:block th:insert="~{include :: footer}" />
+    <th:block th:insert="~{include :: jasny-bootstrap-js}" />
 </body>
 </html>

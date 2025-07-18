@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('fontawesome图标')" />
+	<th:block th:insert="~{include :: header('fontawesome图标')}" />
 	<style type="text/css">
 		.fontawesome-icon-list .fa-hover{cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;color:#222222;line-height:32px;height:32px;padding-left:10px;border-radius:4px;}
 		.fontawesome-icon-list .fa-hover .fa{width:32px;font-size:14px;display:inline-block;text-align:right;margin-right:10px}
@@ -1049,6 +1049,6 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:insert="~{include :: footer}" />
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('拖动排序')" />
+	<th:block th:insert="~{include :: header('拖动排序')}" />
 </head>
 <body class="gray-bg">
     <div class="wrapper wrapper-content  animated fadeInRight">
@@ -187,7 +187,7 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:insert="~{include :: footer}" />
     <script th:src="@{/js/jquery-ui-1.10.4.min.js}"></script>
     <script>
 	    $(document).ready(function () {

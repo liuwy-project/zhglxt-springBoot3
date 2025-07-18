@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:include="include :: header('百度ECharts')" />
+	<th:block th:insert="~{include :: header('百度ECharts')}" />
 </head>
 <body class="gray-bg">
 	<div class="row  border-bottom white-bg dashboard-header">
@@ -266,8 +266,8 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
-    <th:block th:include="include :: echarts-js" />
+    <th:block th:insert="~{include :: footer}" />
+    <th:block th:insert="~{include :: echarts-js}" />
     <script type="text/javascript">
 	    $(function () {
 	        var lineChart = echarts.init(document.getElementById("echarts-line-chart"));

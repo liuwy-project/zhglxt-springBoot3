@@ -31,9 +31,10 @@
         <velocity.version>2.3</velocity.version>
         <springdoc.version>2.6.0</springdoc.version>
 
-        <spring-boot.version>3.3.5</spring-boot.version>
-        <tomcat.version>10.1.41</tomcat.version>
-        <logback.version>1.5.13</logback.version>
+        <spring-boot.version>3.5.0</spring-boot.version>
+        <tomcat.version>11.0.9</tomcat.version>
+        <commons-lang3.version>3.18.0</commons-lang3.version>
+
     </properties>
 
     <!-- 依赖声明 -->
@@ -70,16 +71,12 @@
                 <artifactId>protobuf-java</artifactId>
                 <version>4.28.2</version>
             </dependency>
-            <!-- 覆盖logback的依赖配置-->
+            <!-- 覆盖commons-lang3的依赖配置-->
             <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-core</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <!-- 修复 CVE-2025-48924 解决ClassUtils.getClass(...)方法在处理超长输入时可能导致的 StackOverflowError 问题，提升系统稳定性 -->
+                <version>${commons-lang3.version}</version>
             </dependency>
 
             <!-- 阿里数据库连接池 -->

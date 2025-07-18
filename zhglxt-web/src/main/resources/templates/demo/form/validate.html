@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('表单校验')" />
+	<th:block th:insert="~{include :: header('表单校验')}" />
 </head>
 <body class="gray-bg">
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -132,7 +132,7 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:insert="~{include :: footer}" />
     <script type="text/javascript">
     $(function(){
         $("#commentForm").validate();

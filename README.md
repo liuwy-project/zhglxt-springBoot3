@@ -3,7 +3,7 @@
 
 ## 平台简介
     技术栈架构
-        采用SpringBoot3.3+、MySQL8.0+、JDK21+、Tomcat10+等前沿技术栈构建
+        采用SpringBoot3.5+、MySQL8.0+、JDK21+、Tomcat11+等最新稳定版前沿技术栈构建
         深度整合Mybatis持久层框架、Apache Shiro安全框架、Bootstrap响应式组件库及Thymeleaf模板引擎
         形成标准化企业级开发解决方案
     
@@ -40,8 +40,78 @@
 19. 企业官网：集成CMS内容管理系统（简单的企业官网，如需更强大的企业官网可进行二次开发或重新开发）
 
 ## 开发工具&集成环境
-    系统运行部署环境：JDK 21 、MySQL 8.0.41、Tomcat 10.1.41
+    系统运行部署环境：JDK 21 、MySQL 8.0.41、Tomcat 11.0.9
     开发集成环境：IntelliJ IDEA 2025.1.1.1
     数据库管理工具：Navicat Premium 17+（推荐）
     项目管理工具：Apache Maven 3.9.10
     项目版本控制：Git 2.46.2
+
+## SpringBoot3.3.5升级到3.5.0涉及多个方面的变化，包括依赖更新、新功能引入、弃用项和修复的问题。以下是主要区别的概述：
+    1. 核心框架升级
+        SpringFramework6.2.0
+            SpringBoot3.5.0 基于 SpringFramework6.2.0，带来了新的特性和改进，如增强的 WebClient、响应式事务管理优化等。
+        
+        Java支持
+            最低Java版本仍为17，但对Java21和22的支持更加完善，包括对虚拟线程的优化。
+
+    2. 新功能与增强
+       自动配置与依赖管理
+           服务连接的 SSL 支持
+            现在可以通过配置轻松为数据库、消息代理等服务连接启用SSL。
+        
+           环境变量属性加载
+            支持从环境变量加载属性，简化容器化部署的配置。
+    
+        Web 开发
+            改进的 WebClient
+                增强了 HTTP/2 支持和请求 / 响应拦截器。
+                
+            自定义执行器
+                支持为 @Async 任务配置自定义执行器，提升异步处理性能。
+        
+        数据访问
+            Hibernate 6.4
+                升级 Hibernate 以支持新的 JPA 3.2 特性，如增强的查询性能和更好的类型安全。
+                
+            Redis 客户端更新
+                Lettuce 和 Jedis 客户端升级，支持 Redis 8 特性。
+        
+        安全
+            OAuth2 增强
+                改进了 OAuth2 客户端和资源服务器的配置，支持更多身份验证场景。
+                
+            CSRF 保护优化
+                增强了跨站请求伪造保护机制。
+    
+    
+    3. 弃用与移除
+        旧配置属性
+            部分过时的配置属性已被标记为弃用（如 server.servlet.context-path 被 server.servlet.path 取代）。
+    
+        不再支持的依赖
+            移除了对较旧版本依赖（如 Elasticsearch 7.x）的支持。
+    
+    4. 修复与性能优化
+          启动时间优化
+            通过改进自动配置算法和类路径扫描，进一步缩短应用启动时间。
+    
+          内存占用减少
+            优化了默认配置和依赖加载，降低了应用内存 footprint。
+
+          大量 bug 修复
+            修复了包括 Actuator、测试框架、数据绑定等模块的稳定性问题。
+    
+    5. 升级注意事项
+        依赖冲突
+            检查并更新所有传递依赖，确保与 Spring Boot 3.5.0 兼容。
+        
+        配置变更
+            参考官方迁移指南，更新被弃用的配置属性。
+        
+        测试兼容性
+            特别注意集成测试，尤其是与安全、事务管理相关的部分。
+        
+        第三方库适配
+            确保所有自定义 Starter 和第三方库支持 Spring Framework 6.2.0。
+    
+    Spring Boot 3.5.0 发布说明：https://github.com/spring-projects/spring-boot/releases/tag/v3.5.0

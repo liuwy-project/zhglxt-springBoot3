@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('选项卡 & 面板')" />
+	<th:block th:insert="~{include :: header('选项卡 & 面板')}" />
 </head>
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeIn">
@@ -348,6 +348,6 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:insert="~{include :: footer}" />
 </body>
 </html>

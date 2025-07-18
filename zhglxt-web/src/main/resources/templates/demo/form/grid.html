@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('栅格')" />
+	<th:block th:insert="~{include :: header('栅格')}" />
 </head>
 <body class="gray-bg">
     <div class="wrapper wrapper-content">
@@ -427,6 +427,6 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:insert="~{include :: footer}" />
 </body>
 </html>

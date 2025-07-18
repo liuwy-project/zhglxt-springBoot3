@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-	<th:block th:include="include :: header('代码生成列表')" />
+	<th:block th:insert="~{include :: header('代码生成列表')}" />
 </head>
 <body class="gray-bg">
     <div class="container-div">
@@ -54,8 +54,8 @@
 			</div>
 		</div>
 	</div>
-	<th:block th:include="include :: footer" />
-	<th:block th:include="include :: bootstrap-table-export-js" />
+	<th:block th:insert="~{include :: footer}" />
+	<th:block th:insert="~{include :: bootstrap-table-export-js}" />
 	<script th:src="@{/ajax/libs/highlight/highlight.min.js}"></script>
 	<script th:inline="javascript">
 		var prefix = ctx + "tool/gen";

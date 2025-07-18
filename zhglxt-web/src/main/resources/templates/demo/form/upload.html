@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('文件上传')" />
-	<th:block th:include="include :: bootstrap-fileinput-css" />
+	<th:block th:insert="~{include :: header('文件上传')}" />
+	<th:block th:insert="~{include :: bootstrap-fileinput-css}" />
 </head>
 <body class="gray-bg">
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -36,8 +36,8 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
-    <th:block th:include="include :: bootstrap-fileinput-js" />
+    <th:block th:insert="~{include :: footer}" />
+    <th:block th:insert="~{include :: bootstrap-fileinput-js}" />
     <script th:inline="javascript">
     
     $(document).ready(function () {

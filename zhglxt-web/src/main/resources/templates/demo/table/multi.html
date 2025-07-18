@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:include="include :: header('初始多表格')" />
+	<th:block th:insert="~{include :: header('初始多表格')}" />
 </head>
 <body class="gray-bg">
     <div class="container-div">
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 	</div>
-    <div th:include="include :: footer"></div>
+    <div th:insert="~{include :: footer}"></div>
     <script th:inline="javascript">
         var prefix = ctx + "demo/operate";
         var datas = [[${@dict.getType('sys_normal_disable')}]];

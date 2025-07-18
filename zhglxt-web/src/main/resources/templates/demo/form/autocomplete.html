@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('搜索自动补全')" />
+	<th:block th:insert="~{include :: header('搜索自动补全')}" />
 </head>
 <body class="gray-bg">
       <div class="wrapper wrapper-content animated fadeInRight">
@@ -152,9 +152,9 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
-    <th:block th:include="include :: bootstrap-suggest-js" />
-    <th:block th:include="include :: bootstrap-typeahead-js" />
+    <th:block th:insert="~{include :: footer}" />
+    <th:block th:insert="~{include :: bootstrap-suggest-js}" />
+    <th:block th:insert="~{include :: bootstrap-typeahead-js}" />
     <script type="text/javascript">
         
 	    var testBsSuggest = $("#suggest-demo-1").bsSuggest({

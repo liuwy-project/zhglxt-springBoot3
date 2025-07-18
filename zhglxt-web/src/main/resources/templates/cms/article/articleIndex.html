@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('文章管理')"/>
-    <th:block th:include="include :: layout-latest-css"/>
-    <th:block th:include="include :: ztree-css"/>
+    <th:block th:insert="~{include :: header('文章管理')}"/>
+    <th:block th:insert="~{include :: layout-latest-css}"/>
+    <th:block th:insert="~{include :: ztree-css}"/>
 </head>
 <body class="gray-bg">
 <div class="ui-layout-west">
@@ -74,9 +74,9 @@
     </div>
 </div>
 
-<th:block th:include="include :: footer"/>
-<th:block th:include="include :: layout-latest-js"/>
-<th:block th:include="include :: ztree-js"/>
+<th:block th:insert="~{include :: footer}"/>
+<th:block th:insert="~{include :: layout-latest-js}"/>
+<th:block th:insert="~{include :: ztree-js}"/>
 <script th:inline="javascript">
     var prefix = ctx + "cms/article";
     var columnPrefix = ctx + "cms/column";

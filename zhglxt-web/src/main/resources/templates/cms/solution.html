@@ -33,22 +33,22 @@
     <!--时间轴-->
     <link th:href="@{/cms/css/timeline.css}" rel="stylesheet">
     <!--自定义样式-->
-    <style th:replace="cms/fragments/head-style :: head-style"></style>
+    <style th:replace="~{cms/fragments/head-style :: head-style}"></style>
 </head>
 <body>
 <!-- 导航栏 -->
-<header th:replace="cms/fragments/navbar :: navbar"></header>
+<header th:replace="~{cms/fragments/navbar :: navbar}"></header>
 
 <!-- 主要内容区域 -->
 <div class="container marketing">
     <!-- 解决方案 -->
-    <div th:replace="cms/fragments/solution :: solutions"></div>
+    <div th:replace="~{cms/fragments/solution :: solutions}"></div>
     
     <!-- 页脚 -->
-    <footer th:replace="cms/fragments/footer :: footer"></footer>
+    <footer th:replace="~{cms/fragments/footer :: footer}"></footer>
 </div>
 
 <!-- 页脚脚本 -->
-<div th:replace="cms/fragments/scripts :: scripts"></div>
+<div th:replace="~{cms/fragments/scripts :: scripts}"></div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('用户分配角色')" />
+	<th:block th:insert="~{include :: header('用户分配角色')}" />
 </head>
 <body>
     <div class="main-content">
@@ -44,7 +44,7 @@
             <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>关 闭 </button>
         </div>
     </div>
-	<th:block th:include="include :: footer" />
+	<th:block th:insert="~{include :: footer}" />
 	<script th:inline="javascript">
 	    var prefix = ctx + "system/user/authRole";
 	    var roles = [[${roles}]]

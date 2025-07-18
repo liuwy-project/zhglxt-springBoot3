@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('修改用户头像')" />
-	<th:block th:include="include :: cropper-css" />
+	<th:block th:insert="~{include :: header('修改用户头像')}" />
+	<th:block th:insert="~{include :: cropper-css}" />
 	<style type='text/css'>
 	/* avator css start */
 	.container {
@@ -164,8 +164,8 @@
 			</div>
 		</div>
 	</div>
-<th:block th:include="include :: footer" />
-<th:block th:include="include :: cropper-js" />
+<th:block th:insert="~{include :: footer}" />
+<th:block th:insert="~{include :: cropper-js}" />
 <script type="text/javascript">
 var cropper;
 var croppable = false;

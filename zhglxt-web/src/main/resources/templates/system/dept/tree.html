@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('部门树选择')" />
-	<th:block th:include="include :: ztree-css" />
+	<th:block th:insert="~{include :: header('部门树选择')}" />
+	<th:block th:insert="~{include :: ztree-css}" />
 </head>
 <style>
 	body{height:auto;font-family: "Microsoft YaHei";}
@@ -25,8 +25,8 @@
 	</div>
 	<div id="tree" class="ztree treeselect"></div>
 	</div>
-	<th:block th:include="include :: footer" />
-	<th:block th:include="include :: ztree-js" />
+	<th:block th:insert="~{include :: footer}" />
+	<th:block th:insert="~{include :: ztree-js}" />
 	<script th:inline="javascript">
 	    var prefix = ctx + "system/dept"
 	    var deptId = [[${deptId}]];

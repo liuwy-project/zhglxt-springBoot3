@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('标签 & 提示')" />
+	<th:block th:insert="~{include :: header('标签 & 提示')}" />
 </head>
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeIn">
@@ -228,7 +228,7 @@
         </div>
         
     </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:insert="~{include :: footer}" />
     <script type="text/javascript">
 	    $("[data-toggle='tooltip']").tooltip();
 	    $("[data-toggle=popover]").popover();

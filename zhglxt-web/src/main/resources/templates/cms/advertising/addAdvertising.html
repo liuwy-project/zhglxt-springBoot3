@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:include="include :: header('新增广告')"/>
-    <th:block th:include="include :: bootstrap-fileinput-css" />
+    <th:block th:insert="~{include :: header('新增广告')}"/>
+    <th:block th:insert="~{include :: bootstrap-fileinput-css}" />
     <style>
         .hide-small-remove-btn .kv-file-remove {
             display: none !important;
@@ -70,8 +70,8 @@
         </div>
     </form>
 </div>
-<th:block th:include="include :: footer"/>
-<th:block th:include="include :: bootstrap-fileinput-js" />
+<th:block th:insert="~{include :: footer}"/>
+<th:block th:insert="~{include :: bootstrap-fileinput-js}" />
 <script type="text/javascript" th:inline="javascript">
     var prefix = ctx + "cms/advertising";
     $(function () {

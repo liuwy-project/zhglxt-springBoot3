@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<th:block th:include="include :: header('表单向导')" />
-<th:block th:include="include :: jquery-smartwizard-css" />
+<th:block th:insert="~{include :: header('表单向导')}" />
+<th:block th:insert="~{include :: jquery-smartwizard-css}" />
 <style type="text/css">
 /* 如果要让工具栏固定在页面底部,使用下面的样式,不需要的可以注释 */
 .sw>.toolbar-bottom{
@@ -223,8 +223,8 @@ $('#smartwizard').smartWizard({
 
 		</div>
 	</div>
-	<th:block th:include="include :: footer" />
-	<th:block th:include="include :: jquery-smartwizard-js" />
+	<th:block th:insert="~{include :: footer}" />
+	<th:block th:insert="~{include :: jquery-smartwizard-js}" />
 	<script>
 		$(document).ready(function() {
 			// 工具栏按钮

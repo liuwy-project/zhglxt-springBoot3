@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('修改通知公告')" />
-	<th:block th:include="include :: summernote-css" />
+	<th:block th:insert="~{include :: header('修改通知公告')}" />
+	<th:block th:insert="~{include :: summernote-css}" />
 </head>
 <body class="white-bg">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
@@ -40,8 +40,8 @@
 			</div>
 		</form>
     </div>
-    <th:block th:include="include :: footer" />
-    <th:block th:include="include :: summernote-js" />
+    <th:block th:insert="~{include :: footer}" />
+    <th:block th:insert="~{include :: summernote-js}" />
     <script type="text/javascript">
         var prefix = ctx + "system/notice";
     

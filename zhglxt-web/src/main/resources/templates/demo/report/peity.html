@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:include="include :: header('图表')" />
+	<th:block th:insert="~{include :: header('图表')}" />
 </head>
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeInDown">
@@ -165,8 +165,8 @@
 
         </div>
     </div>
-    <th:block th:include="include :: footer" />
-    <th:block th:include="include :: peity-js" />
+    <th:block th:insert="~{include :: footer}" />
+    <th:block th:insert="~{include :: peity-js}" />
     <script type="text/javascript">
 	    $(function() {
 	        $("span.pie").peity("pie", {

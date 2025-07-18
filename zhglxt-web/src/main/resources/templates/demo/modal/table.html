@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('弹层表格')" />
+	<th:block th:insert="~{include :: header('弹层表格')}" />
 </head>
 <body class="gray-bg">
 	<div class="wrapper wrapper-content fadeInRight">
@@ -46,7 +46,7 @@
 	        </div>
 	    </div>
 	</div>
-    <th:block th:include="include :: footer" />
+    <th:block th:insert="~{include :: footer}" />
     <script type="text/javascript">
         var prefix = ctx + "demo/modal";
 

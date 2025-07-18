@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('角色数据权限')" />
-	<th:block th:include="include :: ztree-css" />
+	<th:block th:insert="~{include :: header('角色数据权限')}" />
+	<th:block th:insert="~{include :: ztree-css}" />
 </head>
 <body class="white-bg">
 	<div class="wrapper wrapper-content animated fadeInRight ibox-content">
@@ -47,8 +47,8 @@
 			</div>
 		</form>
 	</div>
-	<th:block th:include="include :: footer" />
-	<th:block th:include="include :: ztree-js" />
+	<th:block th:insert="~{include :: footer}" />
+	<th:block th:insert="~{include :: ztree-js}" />
 	<script type="text/javascript">
 	
 	    $(function() {

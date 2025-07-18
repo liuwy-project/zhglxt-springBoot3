@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-	<th:block th:include="include :: header('操作日志列表')" />
-	<th:block th:include="include :: bootstrap-select-css" />
+	<th:block th:insert="~{include :: header('操作日志列表')}" />
+	<th:block th:insert="~{include :: bootstrap-select-css}" />
 </head>
 <body class="gray-bg">
 	<div class="container-div">
@@ -64,8 +64,8 @@
 		</div>
 	</div>
 	
-	<th:block th:include="include :: footer" />
-	<th:block th:include="include :: bootstrap-select-js" />
+	<th:block th:insert="~{include :: footer}" />
+	<th:block th:insert="~{include :: bootstrap-select-js}" />
 	<script th:inline="javascript">
 		var detailFlag = [[${@permission.hasPermi('monitor:operlog:detail')}]];
 		var datas = [[${@dict.getType('sys_oper_type')}]];

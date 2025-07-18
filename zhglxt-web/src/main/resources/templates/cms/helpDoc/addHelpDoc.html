@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:include="include :: header('新增文档')"/>
-    <th:block th:include="include :: editorMd-css"/>
+    <th:block th:insert="~{include :: header('新增文档')}"/>
+    <th:block th:insert="~{include :: editorMd-css}"/>
 </head>
 <body class="white-bg">
 <div class="wrapper wrapper-content animated fadeInRight ibox-content">
@@ -45,8 +45,8 @@
         </div>
     </form>
 </div>
-<th:block th:include="include :: footer"/>
-<div th:include="include :: editorMd-js"></div>
+<th:block th:insert="~{include :: footer}"/>
+<div th:insert="~{include :: editorMd-js}"></div>
 <script type="text/javascript" th:inline="javascript">
     var prefix = ctx + "cms/helpDoc";
     $(function () {

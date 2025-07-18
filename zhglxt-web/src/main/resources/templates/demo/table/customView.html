@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:include="include :: header('自定义视图分页')" />
+	<th:block th:insert="~{include :: header('自定义视图分页')}" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -40,8 +40,8 @@
         </div>
     </template>
 
-    <div th:include="include :: footer"></div>
-    <th:block th:include="include :: bootstrap-table-custom-view-js" />
+    <div th:insert="~{include :: footer}"></div>
+    <th:block th:insert="~{include :: bootstrap-table-custom-view-js}" />
     <script th:inline="javascript">
         var prefix = ctx + "demo/table";
         var datas = [[${@dict.getType('sys_normal_disable')}]];

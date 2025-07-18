@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:include="include :: header('多层窗口A')" />
+	<th:block th:insert="~{include :: header('多层窗口A')}" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -21,7 +21,7 @@
 			</form>
 		</div>
 	</div>
-    <div th:include="include :: footer"></div>
+    <div th:insert="~{include :: footer}"></div>
     <script th:inline="javascript">
         /* 提交 */
 		function submitHandler() {

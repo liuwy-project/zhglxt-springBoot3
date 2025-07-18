@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:include="include :: header('创建表结构')"/>
+    <th:block th:insert="~{include :: header('创建表结构')}"/>
 </head>
 <body>
 <div class="main-content">
@@ -10,7 +10,7 @@
         <textarea class="form-control" id="text_create" name="" placeholder="请输入文本" rows="12" type="text"></textarea>
     </div>
 </div>
-<th:block th:include="include :: footer"/>
+<th:block th:insert="~{include :: footer}"/>
 
 <script type="text/javascript">
     var prefix = ctx + "tool/gen";

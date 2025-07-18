@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<th:block th:include="include :: header('局部刷新')" />
+<th:block th:insert="~{include :: header('局部刷新')}" />
 </head>
 <body class="gray-bg">
 	<div class="wrapper wrapper-content animated fadeInRight">
@@ -41,7 +41,7 @@
 			</div>
 		</div>
 	</div>
-	<th:block th:include="include :: footer" />
+	<th:block th:insert="~{include :: footer}" />
 	<script>
 		function refresh(){
 			$.ajax({

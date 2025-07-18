@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('修改字典数据')" />
+	<th:block th:insert="~{include :: header('修改字典数据')}" />
 </head>
 <body class="white-bg">
 	<div class="wrapper wrapper-content animated fadeInRight ibox-content">
@@ -78,7 +78,7 @@
 			</div>
 		</form>
 	</div>
-	<th:block th:include="include :: footer" />
+	<th:block th:insert="~{include :: footer}" />
 	<script type="text/javascript">
 		var prefix = ctx + "system/dict/data";
 	

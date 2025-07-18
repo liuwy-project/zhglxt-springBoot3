@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:include="include :: header('表格行内编辑')" />
-	<th:block th:include="include :: bootstrap-editable-css" />
+	<th:block th:insert="~{include :: header('表格行内编辑')}" />
+	<th:block th:insert="~{include :: bootstrap-editable-css}" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -21,8 +21,8 @@
 		</div>
 	</div>
 	
-	<th:block th:include="include :: footer" />
-	<th:block th:include="include :: bootstrap-table-editable-js" />
+	<th:block th:insert="~{include :: footer}" />
+	<th:block th:insert="~{include :: bootstrap-table-editable-js}" />
 	
     <script th:inline="javascript">
         var prefix = ctx + "demo/table";

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:include="include :: header('线状图')" />
+	<th:block th:insert="~{include :: header('线状图')}" />
 </head>
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeInDown">
@@ -173,8 +173,8 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
-    <th:block th:include="include :: sparkline-js" />
+    <th:block th:insert="~{include :: footer}" />
+    <th:block th:insert="~{include :: sparkline-js}" />
     <script type="text/javascript">
 	    $(function () {
 	        $("#sparkline1").sparkline([34, 43, 43, 35, 44, 32, 44, 52, 25], {

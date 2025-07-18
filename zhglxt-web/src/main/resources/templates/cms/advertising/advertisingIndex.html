@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('广告管理列表')"/>
+    <th:block th:insert="~{include :: header('广告管理列表')}"/>
 </head>
 <body class="gray-bg">
 <div class="container-div">
@@ -50,7 +50,7 @@
         </div>
     </div>
 </div>
-<th:block th:include="include :: footer"/>
+<th:block th:insert="~{include :: footer}"/>
 <script th:inline="javascript">
     var editFlag = [[${@permission.hasPermi('cms:advertising:edit')}]];
     var removeFlag = [[${@permission.hasPermi('cms:advertising:remove')}]];

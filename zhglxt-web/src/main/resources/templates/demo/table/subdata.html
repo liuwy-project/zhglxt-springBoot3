@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:include="include :: header('主子表提交')" />
-    <th:block th:include="include :: datetimepicker-css" />
+    <th:block th:insert="~{include :: header('主子表提交')}" />
+    <th:block th:insert="~{include :: datetimepicker-css}" />
     <style type="text/css">
         table label.error{position: inherit;}select + label.error{z-index:1;right:40px;}
     </style>
@@ -81,8 +81,8 @@
             <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>关 闭 </button>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
-    <th:block th:include="include :: datetimepicker-js" />
+    <th:block th:insert="~{include :: footer}" />
+    <th:block th:insert="~{include :: datetimepicker-js}" />
     <script th:src="@{/js/jquery.tmpl.js}"></script>
 	<script th:inline="javascript">
 	    $(function() {
