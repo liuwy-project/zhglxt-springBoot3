@@ -20,19 +20,19 @@
         <shiro.version>2.0.1</shiro.version>
         <mybatis-spring-boot.version>3.0.3</mybatis-spring-boot.version>
         <thymeleaf.extras.shiro.version>2.1.0</thymeleaf.extras.shiro.version>
-        <druid.version>1.2.23</druid.version>
+        <druid.version>1.2.27</druid.version>
         <bitwalker.version>1.21</bitwalker.version>
         <kaptcha.version>2.3.3</kaptcha.version>
         <pagehelper.boot.version>2.1.0</pagehelper.boot.version>
         <fastjson.version>1.2.83</fastjson.version>
-        <oshi.version>6.8.2</oshi.version>
+        <oshi.version>6.8.3</oshi.version>
         <commons.io.version>2.19.0</commons.io.version>
         <poi.version>5.4.0</poi.version>
         <velocity.version>2.3</velocity.version>
         <springdoc.version>2.6.0</springdoc.version>
 
         <spring-boot.version>3.5.0</spring-boot.version>
-        <tomcat.version>11.0.9</tomcat.version>
+        <tomcat.version>11.0.13</tomcat.version>
         <commons-lang3.version>3.18.0</commons-lang3.version>
 
     </properties>
