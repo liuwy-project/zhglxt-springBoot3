@@ -2,6 +2,7 @@ package com.zhglxt.framework.manager.factory;
 
 import com.zhglxt.common.constant.Constants;
 import com.zhglxt.common.utils.*;
+import com.zhglxt.common.utils.http.UserAgentUtils;
 import com.zhglxt.common.utils.spring.SpringUtils;
 import com.zhglxt.framework.shiro.session.OnlineSession;
 import com.zhglxt.system.domain.SysLogininfor;
@@ -10,7 +11,6 @@ import com.zhglxt.system.domain.SysUserOnline;
 import com.zhglxt.system.service.ISysOperLogService;
 import com.zhglxt.system.service.ISysUserOnlineService;
 import com.zhglxt.system.service.impl.SysLogininforServiceImpl;
-import eu.bitwalker.useragentutils.UserAgent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,7 +1,7 @@
 package com.zhglxt.framework.shiro.session;
 
 import com.zhglxt.common.utils.IpUtils;
-import eu.bitwalker.useragentutils.UserAgent;
+import com.zhglxt.common.utils.http.UserAgentUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.SessionContext;
