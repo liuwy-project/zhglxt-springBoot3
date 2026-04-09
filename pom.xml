@@ -5,14 +5,14 @@
 
     <groupId>com.zhglxt</groupId>
     <artifactId>zhglxt</artifactId>
-    <version>4.8.1</version>
+    <version>4.8.2</version>
 
     <name>zhglxt</name>
     <url>https://www.zhglxt.com</url>
     <description>WEB应用系统</description>
     
     <properties>
-        <zhglxt.version>4.8.1</zhglxt.version>
+        <zhglxt.version>4.8.2</zhglxt.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>21</java.version>
@@ -21,12 +21,12 @@
         <mybatis-spring-boot.version>3.0.3</mybatis-spring-boot.version>
         <thymeleaf.extras.shiro.version>2.1.0</thymeleaf.extras.shiro.version>
         <druid.version>1.2.27</druid.version>
-        <bitwalker.version>1.21</bitwalker.version>
+        <yauaa.version>7.32.0</yauaa.version>
         <kaptcha.version>2.3.3</kaptcha.version>
         <pagehelper.boot.version>2.1.0</pagehelper.boot.version>
         <fastjson.version>1.2.83</fastjson.version>
-        <oshi.version>6.8.3</oshi.version>
-        <commons.io.version>2.19.0</commons.io.version>
+        <oshi.version>6.9.1</oshi.version>
+        <commons.io.version>2.21.0</commons.io.version>
         <poi.version>5.4.0</poi.version>
         <velocity.version>2.3</velocity.version>
         <springdoc.version>2.6.0</springdoc.version>
@@ -158,9 +158,9 @@
 
             <!-- 解析客户端操作系统、浏览器等 -->
             <dependency>
-                <groupId>eu.bitwalker</groupId>
-                <artifactId>UserAgentUtils</artifactId>
-                <version>${bitwalker.version}</version>
+                <groupId>nl.basjes.parse.useragent</groupId>
+                <artifactId>yauaa</artifactId>
+                <version>${yauaa.version}</version>
             </dependency>
 
             <!-- pagehelper 分页插件 -->

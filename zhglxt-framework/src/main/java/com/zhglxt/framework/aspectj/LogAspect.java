@@ -48,6 +48,9 @@ public class LogAspect
     /** 计算操作消耗时间 */
     private static final ThreadLocal<Long> TIME_THREADLOCAL = new NamedThreadLocal<Long>("Cost Time");
 
+    /** 参数最大长度限制 */
+    private static final int PARAM_MAX_LENGTH = 2000;
+
     /**
      * 处理请求前执行
      */
@@ -174,7 +177,7 @@ public class LogAspect
         if (StringUtils.isNotEmpty(map))
         {
             String params = JSONObject.toJSONString(map, excludePropertyPreFilter(excludeParamNames));
-            operLog.setOperParam(StringUtils.substring(params, 0, 2000));
+            operLog.setOperParam(StringUtils.substring(params, 0, PARAM_MAX_LENGTH));
         }
         else
         {
@@ -182,7 +185,7 @@ public class LogAspect
             if (StringUtils.isNotNull(args))
             {
                 String params = argsArrayToString(joinPoint.getArgs(), excludeParamNames);
-                operLog.setOperParam(StringUtils.substring(params, 0, 2000));
+                operLog.setOperParam(params);
             }
         }
     }
@@ -200,7 +203,7 @@ public class LogAspect
      */
     private String argsArrayToString(Object[] paramsArray, String[] excludeParamNames)
     {
-        String params = "";
+        StringBuilder params = new StringBuilder();
         if (paramsArray != null && paramsArray.length > 0)
         {
             for (Object o : paramsArray)
@@ -210,15 +213,20 @@ public class LogAspect
                     try
                     {
                         Object jsonObj = JSONObject.toJSONString(o, excludePropertyPreFilter(excludeParamNames));
-                        params += jsonObj.toString() + " ";
+                        params.append(jsonObj).append(" ");
+                        if (params.length() >= PARAM_MAX_LENGTH)
+                        {
+                            return StringUtils.substring(params.toString(), 0, PARAM_MAX_LENGTH);
+                        }
                     }
                     catch (Exception e)
                     {
+                        log.error("请求参数拼装异常 msg:{}, 参数:{}", e.getMessage(), paramsArray, e);
                     }
                 }
             }
         }
-        return params.trim();
+        return params.toString();
     }
 
     /**
