@@ -1,9 +1,9 @@
-<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">zhglxt v4.8.1</h1>
+<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">zhglxt v4.8.2</h1>
 <h3 align="center">基于SpringBoot开发的轻量级Java快速开发框架</h3>
 
 ## 平台简介
     技术栈架构
-        采用SpringBoot3.5+、MySQL8.0+、JDK21+、Tomcat11+等最新稳定版前沿技术栈构建
+        采用SpringBoot4.0+、MySQL8.0+、JDK21+、Tomcat11+等最新稳定版前沿技术栈构建
         深度整合Mybatis持久层框架、Apache Shiro安全框架、Bootstrap响应式组件库及Thymeleaf模板引擎
         形成标准化企业级开发解决方案
     

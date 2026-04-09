@@ -1,8 +1,8 @@
 package com.zhglxt.framework.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.spring.boot3.autoconfigure.DruidDataSourceBuilder;
-import com.alibaba.druid.spring.boot3.autoconfigure.properties.DruidStatProperties;
+import com.alibaba.druid.spring.boot4.autoconfigure.DruidDataSourceBuilder;
+import com.alibaba.druid.spring.boot4.autoconfigure.properties.DruidStatProperties;
 import com.alibaba.druid.util.Utils;
 import com.zhglxt.common.enums.DataSourceType;
 import com.zhglxt.common.utils.spring.SpringUtils;

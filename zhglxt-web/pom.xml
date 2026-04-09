@@ -78,7 +78,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.3.5</version>
+                <configuration>
+                    <addResources>true</addResources>
+                </configuration>
                 <!--
                     Spring Boot 2.x 中，spring-boot-maven-plugin 用 <fork>true</fork> 开启 DevTools 热部署的进程分离特性
                     Spring Boot 3.x 的 DevTools 热部署逻辑已内置优化，底层实现改为自动处理，无需手动通过 <fork> 开启，删除后不影响功能
