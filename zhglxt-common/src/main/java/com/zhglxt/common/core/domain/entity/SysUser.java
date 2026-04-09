@@ -6,6 +6,7 @@ import com.zhglxt.common.annotation.Excel.ColumnType;
 import com.zhglxt.common.annotation.Excel.Type;
 import com.zhglxt.common.annotation.Excels;
 import com.zhglxt.common.core.domain.BaseEntity;
+import com.zhglxt.common.utils.ShiroUtils;
 import com.zhglxt.common.xss.Xss;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -126,12 +127,7 @@ public class SysUser extends BaseEntity
 
     public boolean isAdmin()
     {
-        return isAdmin(this.userId);
-    }
-
-    public static boolean isAdmin(String userId)
-    {
-        return userId != null && userId.equals("1");
+        return ShiroUtils.isAdmin(this.userId);
     }
 
     public String getDeptId()

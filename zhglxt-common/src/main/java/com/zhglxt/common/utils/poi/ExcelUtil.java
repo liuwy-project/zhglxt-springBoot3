@@ -63,6 +63,11 @@ public class ExcelUtil<T>
     public Map<String, String> sysDictMap = new HashMap<String, String>();
 
     /**
+     * 单元格样式缓存
+     */
+    private Map<String, CellStyle> cellStyleCache = new HashMap<String, CellStyle>();
+
+    /**
      * Excel sheet最大行数，默认65536
      */
     public static final int sheetSize = 65536;
@@ -1110,7 +1115,7 @@ public class ExcelUtil<T>
                 String dictType = attr.dictType();
                 if (StringUtils.isNotEmpty(dateFormat) && StringUtils.isNotNull(value))
                 {
-                    cell.getCellStyle().setDataFormat(this.wb.getCreationHelper().createDataFormat().getFormat(dateFormat));
+                    cell.setCellStyle(createCellStyle(cell.getCellStyle(), dateFormat));
                     cell.setCellValue(parseDateToStr(dateFormat, value));
                 }
                 else if (StringUtils.isNotEmpty(readConverterExp) && StringUtils.isNotNull(value))
@@ -1147,6 +1152,28 @@ public class ExcelUtil<T>
             log.error("导出Excel失败{}", e);
         }
         return cell;
+    }
+
+    /**
+     * 使用自定义格式，同时避免样式污染
+     *
+     * @param cellStyle 从此样式复制
+     * @param format 格式匹配的字符串
+     * @return 格式化后CellStyle对象
+     */
+    private CellStyle createCellStyle(CellStyle cellStyle, String format)
+    {
+        String key = cellStyle.getIndex() + "|" + format;
+        CellStyle cached = cellStyleCache.get(key);
+        if (cached != null)
+        {
+            return cached;
+        }
+        CellStyle style = wb.createCellStyle();
+        style.cloneStyleFrom(cellStyle);
+        style.setDataFormat(wb.getCreationHelper().createDataFormat().getFormat(format));
+        cellStyleCache.put(key, style);
+        return style;
     }
 
     /**

@@ -7,6 +7,7 @@ import com.zhglxt.common.core.domain.entity.SysRole;
 import com.zhglxt.common.core.domain.entity.SysUser;
 import com.zhglxt.common.core.text.Convert;
 import com.zhglxt.common.exception.ServiceException;
+import com.zhglxt.common.utils.ShiroUtils;
 import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.system.mapper.SysMenuMapper;
 import com.zhglxt.system.mapper.SysRoleMenuMapper;
@@ -62,7 +63,7 @@ public class SysMenuServiceImpl implements ISysMenuService
     public List<SysMenu> selectMenuList(SysMenu menu, String userId)
     {
         List<SysMenu> menuList = null;
-        if (SysUser.isAdmin(userId))
+        if (ShiroUtils.isAdmin(userId))
         {
             menuList = menuMapper.selectMenuList(menu);
         }
@@ -83,7 +84,7 @@ public class SysMenuServiceImpl implements ISysMenuService
     public List<SysMenu> selectMenuAll(String userId)
     {
         List<SysMenu> menuList = null;
-        if (SysUser.isAdmin(userId))
+        if (ShiroUtils.isAdmin(userId))
         {
             menuList = menuMapper.selectMenuAll();
         }
