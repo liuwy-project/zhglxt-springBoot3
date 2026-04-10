@@ -1,28 +1,11 @@
 package com.zhglxt.framework.config;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import org.apache.commons.io.IOUtils;
-import org.apache.shiro.cache.ehcache.EhCacheManager;
-import org.apache.shiro.config.ConfigurationException;
-import org.apache.shiro.lang.codec.Base64;
-import org.apache.shiro.lang.io.ResourceUtils;
-import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
-import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
-import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.apache.shiro.web.servlet.SimpleCookie;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.zhglxt.common.constant.Constants;
 import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.common.utils.security.CipherUtils;
 import com.zhglxt.common.utils.spring.SpringUtils;
+import com.zhglxt.framework.config.properties.PermitAllUrlProperties;
 import com.zhglxt.framework.shiro.realm.UserRealm;
 import com.zhglxt.framework.shiro.rememberMe.CustomCookieRememberMeManager;
 import com.zhglxt.framework.shiro.session.OnlineSessionDAO;
@@ -36,8 +19,28 @@ import com.zhglxt.framework.shiro.web.filter.online.OnlineSessionFilter;
 import com.zhglxt.framework.shiro.web.filter.sync.SyncOnlineSessionFilter;
 import com.zhglxt.framework.shiro.web.session.OnlineWebSessionManager;
 import com.zhglxt.framework.shiro.web.session.SpringSessionValidationScheduler;
-import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import jakarta.servlet.Filter;
+import org.apache.commons.io.IOUtils;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
+import org.apache.shiro.config.ConfigurationException;
+import org.apache.shiro.lang.codec.Base64;
+import org.apache.shiro.lang.io.ResourceUtils;
+import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
+import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.servlet.SimpleCookie;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * 权限配置加载
@@ -142,6 +145,9 @@ public class ShiroConfig
      */
     @Value("${csrf.whites: ''}")
     private String csrfWhites;
+
+    @Autowired
+    private PermitAllUrlProperties permitAllUrl;
 
     /**
      * 缓存管理器 使用Ehcache实现
@@ -312,6 +318,8 @@ public class ShiroConfig
         filterChainDefinitionMap.put("/js/**", "anon");
         filterChainDefinitionMap.put("/zhglxt/**", "anon");
         filterChainDefinitionMap.put("/captcha/captchaImage**", "anon");
+        // 匿名访问不鉴权注解列表
+        permitAllUrl.getUrls().forEach(url -> filterChainDefinitionMap.put(url, "anon"));
         // 退出 logout地址，shiro去清除session
         filterChainDefinitionMap.put("/logout", "logout");
         // 不需要拦截的访问
