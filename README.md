@@ -1,4 +1,4 @@
-<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">zhglxt v4.8.2</h1>
+<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">zhglxt v4.8.3</h1>
 <h3 align="center">基于SpringBoot开发的轻量级Java快速开发框架</h3>
 
 ## 平台简介
