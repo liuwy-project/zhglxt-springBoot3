@@ -1,7 +1,8 @@
 package com.zhglxt.framework.shiro.service;
 
+import com.zhglxt.common.core.session.OnlineSession;
 import com.zhglxt.common.utils.StringUtils;
-import com.zhglxt.framework.shiro.session.OnlineSession;
+import com.zhglxt.framework.shiro.session.OnlineSessionFactory;
 import com.zhglxt.system.domain.SysUserOnline;
 import com.zhglxt.system.service.ISysUserOnlineService;
 import org.apache.shiro.session.Session;
@@ -20,6 +21,9 @@ public class SysShiroService
 {
     @Autowired
     private ISysUserOnlineService onlineService;
+
+    @Autowired
+    private OnlineSessionFactory onlineSessionFactory;
 
     /**
      * 删除会话
@@ -45,19 +49,6 @@ public class SysShiroService
 
     public Session createSession(SysUserOnline userOnline)
     {
-        OnlineSession onlineSession = new OnlineSession();
-        if (StringUtils.isNotNull(userOnline))
-        {
-            onlineSession.setId(userOnline.getSessionId());
-            onlineSession.setHost(userOnline.getIpaddr());
-            onlineSession.setBrowser(userOnline.getBrowser());
-            onlineSession.setOs(userOnline.getOs());
-            onlineSession.setDeptName(userOnline.getDeptName());
-            onlineSession.setLoginName(userOnline.getLoginName());
-            onlineSession.setStartTimestamp(userOnline.getStartTimestamp());
-            onlineSession.setLastAccessTime(userOnline.getLastAccessTime());
-            onlineSession.setTimeout(userOnline.getExpireTime());
-        }
-        return onlineSession;
+        return onlineSessionFactory.createSession(userOnline);
     }
 }

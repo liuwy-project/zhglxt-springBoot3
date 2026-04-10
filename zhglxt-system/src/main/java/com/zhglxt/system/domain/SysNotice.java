@@ -1,5 +1,6 @@
 package com.zhglxt.system.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.zhglxt.common.core.domain.BaseEntity;
 import com.zhglxt.common.xss.Xss;
 import jakarta.validation.constraints.NotBlank;
@@ -17,7 +18,7 @@ public class SysNotice extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 公告ID */
-    private Long noticeId;
+    private String noticeId;
 
     /** 公告标题 */
     private String noticeTitle;
@@ -31,12 +32,16 @@ public class SysNotice extends BaseEntity
     /** 公告状态（0正常 1关闭） */
     private String status;
 
-    public Long getNoticeId()
+    /** 是否已读 */
+    @JsonProperty("isRead")
+    private boolean isRead;
+
+    public String getNoticeId()
     {
         return noticeId;
     }
 
-    public void setNoticeId(Long noticeId)
+    public void setNoticeId(String noticeId)
     {
         this.noticeId = noticeId;
     }
@@ -82,6 +87,16 @@ public class SysNotice extends BaseEntity
     public String getStatus()
     {
         return status;
+    }
+
+    public boolean getIsRead()
+    {
+        return isRead;
+    }
+
+    public void setIsRead(boolean isRead)
+    {
+        this.isRead = isRead;
     }
 
     @Override

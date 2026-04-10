@@ -1,6 +1,9 @@
 package com.zhglxt.web.controller.system;
 
+import java.util.List;
+
 import com.zhglxt.common.annotation.Log;
+import com.zhglxt.common.constant.Constants;
 import com.zhglxt.common.core.controller.BaseController;
 import com.zhglxt.common.core.domain.AjaxResult;
 import com.zhglxt.common.core.domain.Ztree;
@@ -12,6 +15,7 @@ import com.zhglxt.common.utils.poi.ExcelUtil;
 import com.zhglxt.framework.shiro.util.AuthorizationUtils;
 import com.zhglxt.system.domain.SysUserRole;
 import com.zhglxt.system.service.ISysDeptService;
+import com.zhglxt.system.service.ISysMenuService;
 import com.zhglxt.system.service.ISysRoleService;
 import com.zhglxt.system.service.ISysUserService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -19,9 +23,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 角色信息
@@ -42,6 +48,9 @@ public class SysRoleController extends BaseController
 
     @Autowired
     private ISysDeptService deptService;
+
+    @Autowired
+    private ISysMenuService menuService;
 
     @RequiresPermissions("system:role:view")
     @GetMapping()
@@ -319,5 +328,28 @@ public class SysRoleController extends BaseController
     {
         List<Ztree> ztrees = deptService.roleDeptTreeData(role);
         return ztrees;
+    }
+
+    /**
+     * 查看角色详情
+     */
+    @RequiresPermissions("system:role:list")
+    @GetMapping("/view/{roleId}")
+    public String view(@PathVariable("roleId") String roleId, ModelMap mmap)
+    {
+        roleService.checkRoleDataScope(roleId);
+        SysRole role = roleService.selectRoleById(roleId);
+        mmap.put("role", role);
+        // 菜单权限
+        mmap.put("menuTree", menuService.roleMenuTreeData(role, getUserId()));
+        // 数据权限部门：仅自定义数据权限时传已勾选部门节点
+        if (Constants.Dept.DATA_SCOPE_CUSTOM.equals(role.getDataScope()))
+        {
+            List<Ztree> deptTree = deptService.roleDeptTreeData(role);
+            mmap.put("deptTree", deptTree);
+        }
+        // 关联用户数量
+        mmap.put("userCount", roleService.countUserRoleByRoleId(roleId));
+        return prefix + "/view";
     }
 }

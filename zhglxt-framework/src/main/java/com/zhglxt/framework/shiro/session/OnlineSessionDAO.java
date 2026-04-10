@@ -1,5 +1,6 @@
 package com.zhglxt.framework.shiro.session;
 
+import com.zhglxt.common.core.session.OnlineSession;
 import com.zhglxt.common.enums.OnlineStatus;
 import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.framework.manager.AsyncManager;

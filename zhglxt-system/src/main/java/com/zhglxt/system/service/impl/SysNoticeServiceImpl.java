@@ -1,6 +1,7 @@
 package com.zhglxt.system.service.impl;
 
 import com.zhglxt.common.core.text.Convert;
+import com.zhglxt.common.utils.uuid.UUID;
 import com.zhglxt.system.domain.SysNotice;
 import com.zhglxt.system.mapper.SysNoticeMapper;
 import com.zhglxt.system.service.ISysNoticeService;
@@ -28,7 +29,7 @@ public class SysNoticeServiceImpl implements ISysNoticeService
      * @return 公告信息
      */
     @Override
-    public SysNotice selectNoticeById(Long noticeId)
+    public SysNotice selectNoticeById(String noticeId)
     {
         return noticeMapper.selectNoticeById(noticeId);
     }
@@ -54,6 +55,7 @@ public class SysNoticeServiceImpl implements ISysNoticeService
     @Override
     public int insertNotice(SysNotice notice)
     {
+        notice.setNoticeId(UUID.fastUUID().toString(true));
         return noticeMapper.insertNotice(notice);
     }
 

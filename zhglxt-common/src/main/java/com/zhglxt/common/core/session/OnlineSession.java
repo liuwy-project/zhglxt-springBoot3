@@ -1,4 +1,4 @@
-package com.zhglxt.framework.shiro.session;
+package com.zhglxt.common.core.session;
 
 import com.zhglxt.common.enums.OnlineStatus;
 import org.apache.commons.lang3.builder.ToStringBuilder;

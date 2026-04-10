@@ -1,10 +1,10 @@
 package com.zhglxt.framework.manager.factory;
 
 import com.zhglxt.common.constant.Constants;
+import com.zhglxt.common.core.session.OnlineSession;
 import com.zhglxt.common.utils.*;
 import com.zhglxt.common.utils.http.UserAgentUtils;
 import com.zhglxt.common.utils.spring.SpringUtils;
-import com.zhglxt.framework.shiro.session.OnlineSession;
 import com.zhglxt.system.domain.SysLogininfor;
 import com.zhglxt.system.domain.SysOperLog;
 import com.zhglxt.system.domain.SysUserOnline;
@@ -14,6 +14,8 @@ import com.zhglxt.system.service.impl.SysLogininforServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.TimerTask;
 
 /**
@@ -51,6 +53,20 @@ public class AsyncFactory
                 online.setBrowser(session.getBrowser());
                 online.setOs(session.getOs());
                 online.setStatus(session.getStatus());
+                // 序列化 OnlineSession，重启后可从 DB 恢复会话
+                try
+                {
+                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                    ObjectOutputStream oos = new ObjectOutputStream(bos);
+                    oos.writeObject(session);
+                    oos.close();
+                    online.setSessionData(bos.toByteArray());
+                }
+                catch (Exception e)
+                {
+                    // 序列化失败不影响正常流程，仅记录日志
+                    LoggerFactory.getLogger(AsyncFactory.class).warn("serialize OnlineSession failed", e);
+                }
                 SpringUtils.getBean(ISysUserOnlineService.class).saveOnline(online);
 
             }

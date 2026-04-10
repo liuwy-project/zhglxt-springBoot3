@@ -1,7 +1,7 @@
 package com.zhglxt.framework.shiro.web.filter.sync;
 
 import com.zhglxt.common.constant.ShiroConstants;
-import com.zhglxt.framework.shiro.session.OnlineSession;
+import com.zhglxt.common.core.session.OnlineSession;
 import com.zhglxt.framework.shiro.session.OnlineSessionDAO;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;

@@ -45,6 +45,9 @@ user:
 
 # Spring配置
 spring:
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
   # 模板引擎
   thymeleaf:
     mode: HTML
@@ -55,9 +58,6 @@ spring:
   messages:
     # 国际化资源文件路径
     basename: static/i18n/messages
-  jackson:
-    time-zone: GMT+8
-    date-format: yyyy-MM-dd HH:mm:ss
   profiles:
     active: druid,mybatis,shiro,doc
   # 文件上传

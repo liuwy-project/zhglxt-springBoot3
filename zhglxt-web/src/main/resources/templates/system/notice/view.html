@@ -3,25 +3,55 @@
 <head>
     <th:block th:insert="~{include :: header('公告详细')}" />
 </head>
-<body>
-    <div class="main-content">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="mail-box-header">
-                    <div class="mail-tools tooltip-demo m-t-md">
-                        <h3 style="text-align: center">[[${notice.noticeTitle}]]</h3>
-                        <h5>
-                          <span class="pull-right font-noraml">发送时间：[[${#dates.format(notice.createTime, 'yyyy-MM-dd HH:mm:ss')}]] </span>
-                          <span class="font-noraml">发件人： </span>[[${notice.createBy}]]
-                        </h5>
-                    </div>
-                </div>
-                <div class="mail-box">
-                    <div class="mail-body" th:utext="${notice.noticeContent}"></div>
-                </div>
-            </div>
+<body class="white-bg">
+<div class="notice-page">
+
+    <div th:switch="${notice.noticeType}">
+        <span th:case="'1'" class="notice-type-tag type-notify">
+            <i class="fa fa-bell-o"></i> 通知
+        </span>
+        <span th:case="'2'" class="notice-type-tag type-announce">
+            <i class="fa fa-bullhorn"></i> 公告
+        </span>
+        <span th:case="*" class="notice-type-tag type-notify">
+            <i class="fa fa-file-text-o"></i> 消息
+        </span>
+    </div>
+
+    <h1 class="notice-title" th:text="${notice.noticeTitle}">公告标题</h1>
+
+    <div class="notice-meta">
+        <span class="meta-item">
+            <i class="fa fa-user-o"></i>
+            <span th:text="${notice.createBy}">发布人</span>
+        </span>
+        <span class="meta-item">
+            <i class="fa fa-clock-o"></i>
+            <span th:text="${#dates.format(notice.createTime, 'yyyy-MM-dd HH:mm:ss')}">发布时间</span>
+        </span>
+        <span class="meta-item">
+            <span th:class="${notice.status == '0'} ? 'status-dot status-ok' : 'status-dot status-off'"></span>
+            <span th:text="${notice.status == '0'} ? '正常' : '已关闭'">状态</span>
+        </span>
+    </div>
+
+    <div class="notice-divider">
+        <span class="notice-divider-dot"></span>
+        <span class="notice-divider-dot"></span>
+        <span class="notice-divider-dot"></span>
+    </div>
+
+    <div class="notice-body">
+        <div class="notice-content"
+             th:if="${not #strings.isEmpty(notice.noticeContent)}"
+             th:utext="${notice.noticeContent}">
+        </div>
+        <div class="notice-empty" th:if="${#strings.isEmpty(notice.noticeContent)}">
+            <i class="fa fa-file-o"></i>暂无内容
         </div>
     </div>
-    <th:block th:insert="~{include :: footer}" />
+
+</div>
+<th:block th:insert="~{include :: footer}" />
 </body>
 </html>

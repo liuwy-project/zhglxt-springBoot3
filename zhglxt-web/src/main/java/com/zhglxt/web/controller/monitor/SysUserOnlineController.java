@@ -8,7 +8,7 @@ import com.zhglxt.common.core.text.Convert;
 import com.zhglxt.common.enums.BusinessType;
 import com.zhglxt.common.enums.OnlineStatus;
 import com.zhglxt.common.utils.ShiroUtils;
-import com.zhglxt.framework.shiro.session.OnlineSession;
+import com.zhglxt.common.core.session.OnlineSession;
 import com.zhglxt.framework.shiro.session.OnlineSessionDAO;
 import com.zhglxt.system.domain.SysUserOnline;
 import com.zhglxt.system.service.ISysUserOnlineService;

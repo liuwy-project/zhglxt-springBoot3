@@ -2,10 +2,9 @@ package com.zhglxt.framework.shiro.web.filter.online;
 
 import com.zhglxt.common.constant.ShiroConstants;
 import com.zhglxt.common.core.domain.entity.SysUser;
+import com.zhglxt.common.core.session.OnlineSession;
 import com.zhglxt.common.enums.OnlineStatus;
 import com.zhglxt.common.utils.ShiroUtils;
-import com.zhglxt.common.utils.StringUtils;
-import com.zhglxt.framework.shiro.session.OnlineSession;
 import com.zhglxt.framework.shiro.session.OnlineSessionDAO;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
@@ -50,7 +49,7 @@ public class OnlineSessionFilter extends AccessControlFilter
             OnlineSession onlineSession = (OnlineSession) session;
             request.setAttribute(ShiroConstants.ONLINE_SESSION, onlineSession);
             // 把user对象设置进去
-            boolean isGuest = StringUtils.isEmpty(onlineSession.getUserId()) || "0".equals(onlineSession.getUserId());
+            boolean isGuest = onlineSession.getUserId() == null || "0".equals(onlineSession.getUserId());
             if (isGuest == true)
             {
                 SysUser user = ShiroUtils.getSysUser();
@@ -58,9 +57,10 @@ public class OnlineSessionFilter extends AccessControlFilter
                 {
                     onlineSession.setUserId(user.getUserId());
                     onlineSession.setLoginName(user.getLoginName());
-					onlineSession.setAvatar(user.getAvatar());
+                    onlineSession.setAvatar(user.getAvatar());
                     onlineSession.setDeptName(user.getDept().getDeptName());
                     onlineSession.markAttributeChanged();
+                    onlineSessionDAO.update(onlineSession);
                 }
             }
 

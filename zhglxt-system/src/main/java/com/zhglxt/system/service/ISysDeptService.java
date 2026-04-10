@@ -102,6 +102,14 @@ public interface ISysDeptService
     public int selectNormalChildrenDeptById(String deptId);
 
     /**
+     * 保存部门排序
+     *
+     * @param deptIds 部门ID数组
+     * @param orderNums 排序数组
+     */
+    public void updateDeptSort(String[] deptIds, String[] orderNums);
+
+    /**
      * 校验部门名称是否唯一
      * 
      * @param dept 部门信息

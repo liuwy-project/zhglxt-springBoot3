@@ -60,6 +60,25 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- 抽屉遮罩 -->
+	<div class="drawer-mask" id="drawerMask" onclick="closeDrawer()"></div>
+
+	<!-- 抽屉面板 -->
+	<div class="drawer-panel" id="drawerPanel">
+		<div class="drawer-head">
+			<div class="drawer-head-left">
+				<i class="fa fa-list-ul" style="color:#5b9bd5;"></i>
+				<span class="drawer-title" id="drawerTitle">字典数据</span>
+				<span class="drawer-subtitle" id="drawerSubtitle"></span>
+			</div>
+			<button class="drawer-close" onclick="closeDrawer()" title="关闭">&#10005;</button>
+		</div>
+		<div class="drawer-body" id="drawerBody">
+			<div class="drawer-loading"><i class="fa fa-spinner fa-spin"></i> 加载中...</div>
+		</div>
+	</div>
+	
 	<th:block th:insert="~{include :: footer}" />
 	<script th:inline="javascript">
 		var editFlag = [[${@permission.hasPermi('system:dict:edit')}]];
@@ -97,7 +116,7 @@
 		            title: '字典类型',
 		            sortable: true,
 		            formatter: function(value, row, index) {
-		                return '<a href="javascript:void(0)" onclick="detail(\'' + row.dictId + '\')">' + value + '</a>';
+		                return '<a href="javascript:void(0)" onclick="view(\'' + row.dictId + '\')">' + value + '</a>';
 		            }
 		        },
 		        {
@@ -149,6 +168,95 @@
         function refreshCache() {
             $.operate.get(prefix + "/refreshCache");
         }
+		
+        /* 打开抽屉并加载字典数据 */
+		function view(dictId) {
+			var row = null;
+			var $rows = $("#bootstrap-table").bootstrapTable('getData');
+			for (var i = 0; i < $rows.length; i++) {
+				console.log(String($rows[i].dictId) === String(dictId))
+				if (String($rows[i].dictId) === String(dictId)) { row = $rows[i]; break; }
+			}
+			var typeName = row ? row.dictName : '字典数据';
+			var typeKey  = row ? row.dictType : '';
+
+			$("#drawerTitle").text(typeName);
+			$("#drawerSubtitle").text(typeKey);
+			$("#drawerBody").html('<div class="drawer-loading"><i class="fa fa-spinner fa-spin"></i> 加载中...</div>');
+
+			$("#drawerMask").show();
+			$("#drawerPanel").addClass("open");
+			$("body").css("overflow", "hidden");
+
+			// 请求字典数据列表
+			$.ajax({
+				url: ctx + "system/dict/data/list",
+				type: "post",
+				data: { dictType: typeKey, pageSize: 100, pageNum: 1 },
+				dataType: "json",
+				success: function(res) {
+					var rows = (res && res.rows) ? res.rows : [];
+					renderDrawer(rows);
+				},
+				error: function() {
+					$("#drawerBody").html('<div class="drawer-empty"><i class="fa fa-exclamation-circle"></i><br>加载失败，请重试</div>');
+				}
+			});
+		}
+
+		/* 渲染抽屉内容 */
+		function renderDrawer(rows) {
+			if (!rows || rows.length === 0) {
+				$("#drawerBody").html('<div class="drawer-empty"><i class="fa fa-inbox fa-2x"></i><br><br>暂无字典数据</div>');
+				return;
+			}
+			var okCount  = rows.filter(function(r){ return r.status === '0'; }).length;
+			var offCount = rows.length - okCount;
+
+			var html = '';
+			// 统计
+			html += '<div class="drawer-stats">';
+			html += '  <div class="drawer-stat"><div class="drawer-stat-num">' + rows.length + '</div><div class="drawer-stat-label">共计条目</div></div>';
+			html += '  <div class="drawer-stat"><div class="drawer-stat-num" style="color:#27ae60;">' + okCount + '</div><div class="drawer-stat-label">正常</div></div>';
+			if (offCount > 0) {
+				html += '  <div class="drawer-stat"><div class="drawer-stat-num" style="color:#e74c3c;">' + offCount + '</div><div class="drawer-stat-label">停用</div></div>';
+			}
+			html += '</div>';
+
+			// 数据卡片列表
+			for (var i = 0; i < rows.length; i++) {
+				var r = rows[i];
+				var statusBadge = (r.status === '0')
+					? '<span class="dict-badge dict-badge-ok">正常</span>'
+					: '<span class="dict-badge dict-badge-off">停用</span>';
+
+				var labelHtml = r.dictLabel;
+				if (r.listClass && r.listClass !== 'default') {
+					labelHtml = '<span class="badge badge-' + r.listClass + '">' + r.dictLabel + '</span>';
+				} else if (r.cssClass) {
+					labelHtml = '<span class="' + r.cssClass + '">' + r.dictLabel + '</span>';
+				}
+
+				html += '<div class="dict-card-wrap"><div class="dict-card">';
+				html += '  <div class="dict-card-row"><div class="dict-card-key">标签</div><div class="dict-card-val">' + labelHtml + '</div></div>';
+				html += '  <div class="dict-card-row"><div class="dict-card-key">键值</div><div class="dict-card-val"><code>' + r.dictValue + '</code></div></div>';
+				html += '  <div class="dict-card-row"><div class="dict-card-key">状态</div><div class="dict-card-val">' + statusBadge + '</div></div>';
+				html += '</div></div>';
+			}
+			$("#drawerBody").html(html);
+		}
+
+		/* 关闭抽屉 */
+		function closeDrawer() {
+			$("#drawerPanel").removeClass("open");
+			$("#drawerMask").hide();
+			$("body").css("overflow", "");
+		}
+
+		/* ESC 关闭 */
+		$(document).on("keydown", function(e) {
+			if (e.key === "Escape") closeDrawer();
+		});
 	</script>
 </body>
 </html>

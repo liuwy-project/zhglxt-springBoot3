@@ -322,6 +322,7 @@ public class SysMenuServiceImpl implements ISysMenuService
      * @param menuIds 菜单ID
      * @param orderNums 排序ID
      */
+    @Override
     @Transactional
     public void updateMenuSort(String[] menuIds, String[] orderNums)
     {

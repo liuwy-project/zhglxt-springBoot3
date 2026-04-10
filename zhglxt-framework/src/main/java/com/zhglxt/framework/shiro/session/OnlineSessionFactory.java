@@ -1,13 +1,20 @@
 package com.zhglxt.framework.shiro.session;
 
+import com.zhglxt.common.core.session.OnlineSession;
 import com.zhglxt.common.utils.IpUtils;
+import com.zhglxt.common.utils.StringUtils;
 import com.zhglxt.common.utils.http.UserAgentUtils;
+import com.zhglxt.system.domain.SysUserOnline;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.SessionContext;
 import org.apache.shiro.session.mgt.SessionFactory;
 import org.apache.shiro.web.session.mgt.WebSessionContext;
 import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.io.ByteArrayInputStream;
+import java.io.ObjectInputStream;
 
 /**
  * 自定义sessionFactory会话
@@ -17,6 +24,40 @@ import org.springframework.stereotype.Component;
 @Component
 public class OnlineSessionFactory implements SessionFactory
 {
+    private static final Logger log = LoggerFactory.getLogger(OnlineSessionFactory.class);
+
+    public Session createSession(SysUserOnline userOnline)
+    {
+        // 优先从序列化数据恢复完整 Session（包含 principals 认证信息）
+        if (userOnline.getSessionData() != null && userOnline.getSessionData().length > 0)
+        {
+            try
+            {
+                ByteArrayInputStream bis = new ByteArrayInputStream(userOnline.getSessionData());
+                ObjectInputStream ois = new ObjectInputStream(bis);
+                OnlineSession onlineSession = (OnlineSession) ois.readObject();
+                ois.close();
+                // 确保 sessionId 和 DB 一致
+                if (onlineSession.getId() == null)
+                {
+                    onlineSession.setId(userOnline.getSessionId());
+                }
+                return onlineSession;
+            }
+            catch (Exception e)
+            {
+                log.warn("deserialize OnlineSession failed, sessionId={}", userOnline.getSessionId(), e);
+            }
+        }
+        // 降级：仅用基础字段重建（无认证信息，会触发重新登录）
+        OnlineSession onlineSession = userOnline.getSession();
+        if (StringUtils.isNotNull(onlineSession) && onlineSession.getId() == null)
+        {
+            onlineSession.setId(userOnline.getSessionId());
+        }
+        return onlineSession;
+    }
+
     @Override
     public Session createSession(SessionContext initData)
     {
